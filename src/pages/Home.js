@@ -1,7 +1,7 @@
 import React from 'react';
 import {useNavigate} from "react-router-dom"
 
-const Home = ({dataList}) => {
+const Home = () => {
   const navigate = useNavigate();
 
   return (
@@ -9,6 +9,7 @@ const Home = ({dataList}) => {
       홈 화면입니다.
       <div>
         <button onClick={() => {navigate("/new")}}>글쓰기</button>
+        <button onClick={() => {navigate("/view")}}>게시글이동</button>
       </div>
     </div>
   );
