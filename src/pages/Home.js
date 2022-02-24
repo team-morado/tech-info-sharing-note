@@ -8,16 +8,16 @@ const Home = ({ dataList }) => {
   return (
     <div>
       홈 화면입니다.
-      {
-        dataList.map((it) => {
-          return (
-            <ListItem {...it} />
-          )
-        })
-      }
       <div>
         <button onClick={() => { navigate("/new") }}>글쓰기</button>
       </div>
+      {
+        dataList.map((it) => {
+          return (
+            <ListItem key={it.id} {...it} />
+          )
+        })
+      }
     </div>
   );
 };
