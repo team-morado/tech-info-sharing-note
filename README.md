@@ -4,6 +4,7 @@
 - 기간 : 2022.02.23 - 2022.03.02
      
 ## :pencil2: 시안
+[UI Figma Link](https://www.figma.com/file/4U8qranTUhhKW1vFeNWrav/%EC%B4%88%EC%95%88?node-id=0%3A1)   
 - demo v.1      
 ![시안0](https://user-images.githubusercontent.com/93389773/155470792-00c78710-1ef1-4329-a118-13dc00a65f29.png)
       
