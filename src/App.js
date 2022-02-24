@@ -1,10 +1,13 @@
-import './App.css';
+import "./App.css";
 import { useState, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import New from "./pages/New";
+import Splash from "./pages/Splash";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
 
 function App() {
   const [data, setData] = useState([]);
@@ -27,13 +30,16 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* <Header /> */}
       <div className="App">
         <Routes>
           <Route path="/" element={<Home dataList={data} />} />
           <Route path="/new" element={<New onCreate={onCreate} />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/splash" element={<Splash />} />
         </Routes>
       </div>
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
