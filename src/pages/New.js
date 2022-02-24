@@ -1,5 +1,54 @@
 import React, {useState, useRef} from 'react';
+import styled from "styled-components";
 import {useNavigate} from "react-router-dom"
+
+import Button from "../elements/Button";
+import Text from "../elements/Text";
+
+const ElMain = styled.main`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+`
+
+const ElDiv = styled.div`
+  margin-bottom: 19px;
+`
+
+const ElInput = styled.input`
+  background-color: #F9F9F9;
+  width: 337px;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 1rem;
+  &:focus {
+    outline: 1px solid #FDB674;
+  }
+`
+
+const ElSelect = styled.select`
+  background-color: #F9F9F9;
+  width: 337px;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 1rem;
+  //background: url("") no-repeat 95% 50%;
+  
+  &:focus {
+    outline: 1px solid #FDB674;
+  }
+`
+
+const ElTextarea = styled.textarea`
+  background-color: #F9F9F9;
+  width: 337px;
+  height: 10rem;
+  border-radius: 4px;
+  padding: 1rem;
+  &:focus {
+    outline: 1px solid #FDB674;
+  }
+`
 
 const New = ({onCreate}) => {
   const navigate = useNavigate();
@@ -65,10 +114,10 @@ const New = ({onCreate}) => {
   };
 
   return (
-    <section>
-      <div>
-        <span>작성자</span>
-        <select
+    <ElMain>
+      <ElDiv>
+        <Text margin="13px 0 11px 0">작성자</Text>
+        <ElSelect
           name="author"
           value={state.author || ''}
           onChange={handleChangeState}
@@ -80,12 +129,12 @@ const New = ({onCreate}) => {
           <option value="규민">규민</option>
           <option value="다님">다님</option>
           <option value="지윤">지윤</option>
-        </select>
-      </div>
+        </ElSelect>
+      </ElDiv>
 
-      <div>
-        <span>제목</span>
-        <input
+      <ElDiv>
+        <Text margin="0 0 11px 0">제목</Text>
+        <ElInput
           type="text"
           ref={titleRef}
           value={state.title}
@@ -93,11 +142,11 @@ const New = ({onCreate}) => {
           name="title"
           placeholder="제목을 입력해주세요."
         />
-      </div>
+      </ElDiv>
 
-      <div>
-        <span>카테고리</span>
-        <select
+      <ElDiv>
+        <Text margin="0 0 11px 0">카테고리</Text>
+        <ElSelect
           name="category"
           value={state.category}
           onChange={handleChangeState}
@@ -108,12 +157,12 @@ const New = ({onCreate}) => {
           <option value="CSS">CSS</option>
           <option value="JS">JS</option>
           <option value="React">React</option>
-        </select>
-      </div>
+        </ElSelect>
+      </ElDiv>
 
-      <div>
-        <span>공유할 링크(URL)</span>
-        <input
+      <ElDiv>
+        <Text margin="0 0 11px 0">공유할 링크(URL)</Text>
+        <ElInput
           type="text"
           ref={urlRef}
           value={state.url}
@@ -121,21 +170,20 @@ const New = ({onCreate}) => {
           name="url"
           placeholder="URL을 입력해주세요."
         />
-      </div>
+      </ElDiv>
 
-      <div>
-        <span>공유하고 싶은 이유 or 상세정보</span>
-        <textarea
+      <ElDiv>
+        <Text margin="0 0 11px 0">공유하고 싶은 이유 or 상세정보</Text>
+        <ElTextarea
           ref={contentRef}
           value={state.content}
           onChange={handleChangeState}
           name="content"
-          placeholder="공유하고 싶은 내용을 입력해주세요."
         />
-      </div>
-
-      <button onClick={handleSubmit}>저장하기</button>
-    </section>
+      </ElDiv>
+      <Button size='medium' _onClick={handleSubmit}>저장하기</Button>
+      <button onClick={() => {navigate(-1)}}>뒤로가기</button>
+    </ElMain>
   );
 };
 
