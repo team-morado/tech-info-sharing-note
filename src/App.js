@@ -8,6 +8,7 @@ import New from "./pages/New";
 import Splash from "./pages/Splash";
 // import Header from "./components/Header";
 // import Footer from "./components/Footer";
+import ViewPage from "./pages/ViewPage";
 
 function App() {
   const [data, setData] = useState([]);
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<Home dataList={data} />} />
           <Route path="/new" element={<New onCreate={onCreate} />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/view" element={<ViewPage />} />
           <Route path="/splash" element={<Splash />} />
         </Routes>
       </div>

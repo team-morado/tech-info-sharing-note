@@ -18,6 +18,13 @@ const Home = ({ dataList }) => {
         >
           글쓰기
         </button>
+        <button
+          onClick={() => {
+            navigate("/view");
+          }}
+        >
+          게시글이동
+        </button>
       </div>
       {dataList.map((it) => {
         return <ListItem key={it.id} {...it} />;
