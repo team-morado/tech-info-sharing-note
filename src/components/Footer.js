@@ -1,11 +1,29 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 
 const Footer = () => {
   return (
-    <div>
-      Footer
-    </div>
+    <FooterWrap>
+      <CopyRight>Copyright ©morado. All Rights Reserved.</CopyRight>
+    </FooterWrap>
   );
 };
 
 export default Footer;
+
+const FooterWrap = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CopyRight = styled.p`
+  color: #666;
+  font-size: 13px;
+`;
