@@ -1,9 +1,14 @@
 import React from 'react';
 
-const ListItem = () => {
+const ListItem = ({ id, author, title, category, url, content, created_date, }) => {
   return (
     <div>
-      ListItem 다님님
+      {id}
+      {category}
+      {title}
+      {content}
+      {created_date}
+      {author}
     </div>
   );
 };
