@@ -2,45 +2,33 @@ import React from 'react';
 import styled from "styled-components";
 
 
+const ListOptionCreate = ({name, value, txt}) => {
+  return (
+    <ListOptionItem>
+        <input name={name} type="checkbox" id={value} value={value} />
+        <label htmlFor={value}>{txt}</label>
+    </ListOptionItem>
+  )
+}
+
 const ListOption = () => {
   return (
     <>
     <ListOptionRow>
       <ListOptionType>작성자</ListOptionType>
       <ListOptionList>
-        <ListOptionItem>
-          <input name="who" type="checkbox" id="hs" value="hs" />
-          <label htmlFor="hs">효순</label>
-        </ListOptionItem>
-        <ListOptionItem>
-          <input name="who" type="checkbox" id="jy" value="jy" />
-          <label htmlFor="jy">지윤</label>
-        </ListOptionItem>
-        <ListOptionItem>
-          <input name="who" type="checkbox" id="tina" value="tina" />
-          <label htmlFor="tina">다님</label>
-        </ListOptionItem>
-        <ListOptionItem>
-          <input name="who" type="checkbox" id="km" value="km" />
-          <label htmlFor="km">규민</label>
-        </ListOptionItem>
-        <ListOptionItem>
-          <input name="who" type="checkbox" id="mj" value="mj" />
-          <label htmlFor="mj">미진</label>
-        </ListOptionItem>
+        <ListOptionCreate name="who" value="hg" txt="효순" />
+        <ListOptionCreate name="who" value="jy" txt="지윤" />
+        <ListOptionCreate name="who" value="tina" txt="다님" />
+        <ListOptionCreate name="who" value="mj" txt="미진" />
+        <ListOptionCreate name="who" value="km" txt="규민" />
       </ListOptionList>
     </ListOptionRow>
     <ListOptionRow>
       <ListOptionType>카테고리</ListOptionType>
       <ListOptionList>
-        <ListOptionItem>
-          <input name="subject" type="checkbox" id="html" value="html" />
-          <label htmlFor="html">HTML</label>
-        </ListOptionItem>
-        <ListOptionItem>
-          <input name="subject" type="checkbox" id="css" value="css" />
-          <label htmlFor="css">CSS</label>
-        </ListOptionItem>
+        <ListOptionCreate name="subject" value="html" txt="HTML" />
+        <ListOptionCreate name="subject" value="css" txt="CSS" />
       </ListOptionList>
     </ListOptionRow>
     </>
@@ -74,7 +62,7 @@ const ListOptionList = styled.ul`
 `
 
 const ListOptionItem = styled.li`
-  max-width: 33.3333%;
+  width: 33.3333%;
   padding-right: 1.5rem;
   box-sizing: border-box;
   &:nth-child(3) ~ li {
