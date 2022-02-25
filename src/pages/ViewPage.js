@@ -1,11 +1,12 @@
 import ViewCard from "../components/ViewCard";
 
 const ViewPage = ({dataList}) => {
-  return (
+
+    const data = dataList[0];
+
+    return (
     <div>
-      {dataList.map((it) => {
-        return <ViewCard {...it} />;
-      })}
+        <ViewCard {...data} />
     </div>
   );
 };
