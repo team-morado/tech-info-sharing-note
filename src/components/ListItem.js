@@ -1,17 +1,42 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const ListItem = ({ id, author, title, category, url, content, created_date, }) => {
+
+const ListItem = ({ author, title, category, url, content, created_date, }) => {
   return (
     <div>
-      <hr />
-      {id}
-      {category}
-      {title}
-      {content}
-      {created_date}
-      {author}
+      <ItemList>
+        <hr />
+        <Category>
+          {category}
+        </Category>
+        <Contents>
+          {title}
+          {content}
+        </Contents>
+        <Info>
+          {created_date}
+          {author}
+        </Info>
+      </ItemList>
     </div>
   );
 };
 
 export default ListItem;
+
+
+const ItemList = styled.div`
+  display: flex;
+`
+
+const Category = styled.div`
+
+`
+
+const Contents = styled.div`
+
+`
+const Info = styled.div`
+
+`
