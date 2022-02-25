@@ -1,11 +1,33 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 
 const NotFound = () => {
   return (
-    <div>
-      서버 주소를 다시 확인해주세요.
-    </div>
+    <NotFoundCont>
+      <ErrorTxt>404</ErrorTxt>
+      <SubTxt>서버 주소를 다시 확인해주세요.</SubTxt>
+    </NotFoundCont>
   );
 };
 
 export default NotFound;
+
+const NotFoundCont = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+`;
+
+const ErrorTxt = styled.p`
+  font-size: 110px;
+  font-weight: 600;
+  color: #ebe1f6;
+`;
+
+const SubTxt = styled.p`
+  font-size: 16px;
+  color: #c4c4c4;
+  margin-top: 20px;
+`;

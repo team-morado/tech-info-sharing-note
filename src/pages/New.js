@@ -1,56 +1,58 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 import Button from "../elements/Button";
 import Text from "../elements/Text";
+import { HeaderNew } from "../components/Header";
+import Footer from "../components/Footer";
 
 const ElMain = styled.main`
   display: flex;
   flex-flow: column;
   align-items: center;
-`
+`;
 
 const ElDiv = styled.div`
   margin-bottom: 19px;
-`
+`;
 
 const ElInput = styled.input`
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   width: 337px;
   height: 40px;
   border-radius: 4px;
   padding-left: 1rem;
   &:focus {
-    outline: 1px solid #FDB674;
+    outline: 1px solid #fdb674;
   }
-`
+`;
 
 const ElSelect = styled.select`
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   width: 337px;
   height: 40px;
   border-radius: 4px;
   padding-left: 1rem;
   //background: url("") no-repeat 95% 50%;
-  
+
   &:focus {
-    outline: 1px solid #FDB674;
+    outline: 1px solid #fdb674;
   }
-`
+`;
 
 const ElTextarea = styled.textarea`
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   width: 337px;
   height: 10rem;
   border-radius: 4px;
   padding: 1rem;
   &:focus {
-    outline: 1px solid #FDB674;
+    outline: 1px solid #fdb674;
   }
-`
+`;
 
-const New = ({onCreate}) => {
+const New = ({ onCreate }) => {
   const navigate = useNavigate();
 
   const authorRef = useRef();
@@ -70,7 +72,7 @@ const New = ({onCreate}) => {
   const handleChangeState = (e) => {
     setState({
       ...state,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -100,8 +102,13 @@ const New = ({onCreate}) => {
       return;
     }
 
-
-    onCreate(state.author, state.title, state.category, state.url, state.content);
+    onCreate(
+      state.author,
+      state.title,
+      state.category,
+      state.url,
+      state.content
+    );
     alert("저장 성공");
     setState({
       author: "",
@@ -109,17 +116,18 @@ const New = ({onCreate}) => {
       category: "",
       url: "",
       content: "",
-    })
-    navigate('/')
+    });
+    navigate("/");
   };
 
   return (
     <ElMain>
+      <HeaderNew />
       <ElDiv>
         <Text margin="13px 0 11px 0">작성자</Text>
         <ElSelect
           name="author"
-          value={state.author || ''}
+          value={state.author || ""}
           onChange={handleChangeState}
           ref={authorRef}
         >
@@ -181,8 +189,17 @@ const New = ({onCreate}) => {
           name="content"
         />
       </ElDiv>
-      <Button size='medium' _onClick={handleSubmit}>저장하기</Button>
-      <button onClick={() => {navigate(-1)}}>뒤로가기</button>
+      <Button size="medium" _onClick={handleSubmit}>
+        저장하기
+      </Button>
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        뒤로가기
+      </button>
+      <Footer />
     </ElMain>
   );
 };
