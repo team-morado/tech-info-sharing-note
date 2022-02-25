@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import PrevBtn from "../image/icon-arrow-left.svg";
+import PrevBtn from "../image/icon-arrow-left.svg"
 import EditIcon from "../image/icon-edit.png";
+
 
 export const HeaderNew = () => {
   return (
@@ -17,12 +18,16 @@ export const HeaderNew = () => {
   );
 };
 
-const Header = () => {
+export const Header = () => {
   return (
     <HeaderCont>
       <HeaderWrap>
+        <BtnLink to="/">
+          <img src={PrevBtn} />
+        </BtnLink>
         <Title>공유노트</Title>
       </HeaderWrap>
+
       <Button to="/new">
         <EditImg src={EditIcon} />
         <BtnText>글쓰기</BtnText>
@@ -30,8 +35,6 @@ const Header = () => {
     </HeaderCont>
   );
 };
-
-export default Header;
 
 const HeaderCont = styled.header`
   position: sticky;
