@@ -29,19 +29,20 @@ const sizeStyles = css`
 `;
 
 const ElButton = styled.button`
-  background-color: #FDB674;
-  color: #fff;
+  background-color: ${(props) => props.bg};
+  color: ${(props) => props.color};
+  border: ${(props) => props.border};
   cursor: pointer;
-  
   /* Size */
   ${sizeStyles}
 `;
 
-const Button = ({children, size, _onClick}) => {
+const Button = (props) => {
+  const {children, size, _onClick, bg, color, border} = props;
+  const styles = {size: size, bg: bg, color: color, border:border};
   return (
     <>
-      <ElButton size={size} onClick={_onClick}>{children}</ElButton>
-
+      <ElButton {...styles} onClick={_onClick}>{children}</ElButton>
     </>
   );
 };
@@ -49,8 +50,12 @@ const Button = ({children, size, _onClick}) => {
 Button.defaultProps = {
   children: null,
   size: 'medium',
+  bg: '#8465e1',
+  color: '#fff',
+  border: 'transparent',
   _onClick: () => {},
 }
+
 
 
 export default Button;
