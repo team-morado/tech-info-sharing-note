@@ -12,6 +12,7 @@ import ViewPage from "./pages/ViewPage";
 
 function App() {
   const [data, setData] = useState([]);
+
   const dataId = useRef(0);
 
   const onCreate = (author, title, category, url, content) => {
