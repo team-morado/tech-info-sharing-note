@@ -2,10 +2,7 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import Button from "../elements/Button";
-import Text from "../elements/Text";
-import { HeaderNew } from "../components/Header";
-import Footer from "../components/Footer";
+import {Button, Text} from "../elements"
 
 const ElMain = styled.main`
   display: flex;
@@ -122,7 +119,6 @@ const New = ({ onCreate }) => {
 
   return (
     <ElMain>
-      <HeaderNew />
       <ElDiv>
         <Text margin="13px 0 11px 0">작성자</Text>
         <ElSelect
@@ -192,14 +188,6 @@ const New = ({ onCreate }) => {
       <Button size="medium" _onClick={handleSubmit}>
         저장하기
       </Button>
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        뒤로가기
-      </button>
-      <Footer />
     </ElMain>
   );
 };
