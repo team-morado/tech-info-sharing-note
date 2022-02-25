@@ -1,8 +1,13 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom";
 import ExternalLink from "./Svg";
+import { Button } from "../elements";
+import ClipboardCopy from "./ClipboardCopy";
+
 
 const ViewCard = ({ id, author, title, category, url, content, created_date,}) => {
+    console.log(created_date)
+    const dateTimeInKR = `${new Date(created_date).getFullYear()}년 ${new Date(created_date).getMonth()}월 ${new Date(created_date).getDay()}일`
+
     return (
         <Container>
             <header>
@@ -10,28 +15,23 @@ const ViewCard = ({ id, author, title, category, url, content, created_date,}) =
                 <Category>{category}</Category>
                 <Wrapper>
                     <span>{author}</span>&middot;
-                    <span>{created_date}</span>
+                    <span>{dateTimeInKR}</span>
                 </Wrapper>
             </header>
             <URLCopyBoxWrapper>
                 <h2>공유 URL</h2>
-                <URLCopybox>
-                    <input type="text" placeholder={url}/>
-                    <CopyButton>Copy</CopyButton>
-                </URLCopybox>
-                <Link to="#">
-                    <a>
-                        <ExternalLink />
-                        공유페이지 새창으로 열기
-                    </a>
-                </Link>
+                <ClipboardCopy url={url}/>
+                <a href={url} target="_blank">
+                    <ExternalLink />
+                    공유페이지 새창으로 열기
+                </a>
             </URLCopyBoxWrapper>
             <ContentWrapper>
                 <h2>공유하고 싶은 이유 or 상세정보</h2>
                 <Content>{content}</Content>
             </ContentWrapper>
             <ButtonContainer>
-                <EditButton>수정</EditButton>
+                <Button size="small">수정</Button>
                 <DeleteButton>삭제</DeleteButton>
             </ButtonContainer>
         </Container>
@@ -40,7 +40,7 @@ const ViewCard = ({ id, author, title, category, url, content, created_date,}) =
 
 export default ViewCard;
 
-const Container = styled.section`
+const Container = styled.article`
     padding: 3%;
 `
 
@@ -66,6 +66,7 @@ const Wrapper = styled.div`
 `
 
 const URLCopyBoxWrapper = styled.div`
+    overflow: hidden;
     h2 {
         margin-bottom: 11px;
         font-weight: 700;
@@ -73,7 +74,7 @@ const URLCopyBoxWrapper = styled.div`
     a {
         color: #FDB674;
         float: right;
-        margin-top: 4px;
+        margin-top: 7px;
         text-decoration: underline;
         font-size: 0.875rem;
         fill: #FDB674;
@@ -81,28 +82,6 @@ const URLCopyBoxWrapper = styled.div`
     }
     svg {
         vertical-align: bottom;
-    }
-`
-
-const URLCopybox = styled.div`
-    border: solid 1px #8465E1;
-    border-radius: 4px;
-    height: 40px;
-    overflow: hidden;
-    input {
-        height: 100%;
-        padding: 11px;
-        box-sizing: border-box;
-    }
-`
-
-const CopyButton = styled.button`
-    float: right;
-    background-color: #8465E1;
-    color: #fff;
-    padding: 11px 21px;
-    &:hover {
-        cursor: pointer;
     }
 `
 
@@ -116,24 +95,16 @@ const ContentWrapper = styled.div`
 
 const Content = styled.p`
     min-height: 100px;
-    max-height: 300px;
+    max-height: 25vh;
     overflow: scroll;
     overflow-x: hidden;
     line-height: 20px;
 `
 
 const ButtonContainer = styled.div`
-    margin-top: 72px;
+    margin-top: 50px;
     display: flex;
     justify-content: flex-end;
-`
-
-const EditButton = styled.button`
-    border: solid 1px #8465E1;
-    background-color: #8465E1;
-    color: #fff;
-    padding: 5px 23px;
-    border-radius: 4px;
 `
 
 const DeleteButton = styled.button`
