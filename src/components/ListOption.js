@@ -10,18 +10,13 @@ const ListOption = ({name, value, txt, addChecked, removeChecked}) => {
     removeChecked(groupName, value);
   }
 
-
   const onClickCheckbox = (e) => {
     const currentIs = document.querySelector(`input[value=${e.target.value}]`).checked;
     if (currentIs) {
-
       checkPlus(e.target.name, e.target.value)
-
-
     } else {
       checkMinus(e.target.name, e.target.value)
     }
-
   }
 
   return (
@@ -33,8 +28,6 @@ const ListOption = ({name, value, txt, addChecked, removeChecked}) => {
 };
 
 export default ListOption;
-
-
 
 const ListOptionItem = styled.li`
   width: 33.3333%;

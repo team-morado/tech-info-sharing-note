@@ -112,3 +112,8 @@ select,
 textarea {
   font-family: 'Noto Sans KR', Verdana, sans-serif;
 }
+
+.App {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
