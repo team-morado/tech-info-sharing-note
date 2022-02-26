@@ -2,14 +2,10 @@ import styled from "styled-components";
 import { ClipboardCopy } from "./../components";
 import { Button } from "../elements";
 import ExternalLink from "./../components/Svg";
+import CategoryTag from "../elements/CategoryTag";
 
 const ViewPage = ({ dataList }) => {
     
-    if(dataList.length == 0){
-        alert('잘못된 접근입니다!');
-        document.location.href="/";
-    }
-
   const dummyData = [
     {
       id: 1,
@@ -21,6 +17,7 @@ const ViewPage = ({ dataList }) => {
       created_date: new Date().toLocaleString(),
     },
   ];
+
   const { id, author, title, category, url, content, created_date } =
     dummyData[0];
   const dateTimeInKR = `${new Date(created_date).getFullYear()}년 ${new Date(
@@ -32,7 +29,7 @@ const ViewPage = ({ dataList }) => {
         <Container>
         <header>
             <Title>{title}</Title>
-            <Category>{category}</Category>
+            <CategoryTag category={category}>{category}</CategoryTag>
             <Wrapper>
             <span>{author}</span>&middot;
             <span>{dateTimeInKR}</span>
@@ -41,7 +38,7 @@ const ViewPage = ({ dataList }) => {
         <URLCopyBoxWrapper>
             <h2>공유 URL</h2>
             <ClipboardCopy url={url} />
-            <a href={url} target="_blank">
+            <a href={url} target="_blank" rel="noreferrer">
             <ExternalLink />
             공유페이지 새창으로 열기
             </a>
@@ -52,7 +49,7 @@ const ViewPage = ({ dataList }) => {
         </ContentWrapper>
         <ButtonContainer>
             <Button size="small">수정</Button>
-            <DeleteButton>삭제</DeleteButton>
+            <Button size="small" bg="#fff" color="#8465e1" border="#8465e1">삭제</Button>
         </ButtonContainer>
         </Container>
     </div>
@@ -126,13 +123,4 @@ const ButtonContainer = styled.div`
   margin-top: 50px;
   display: flex;
   justify-content: flex-end;
-`;
-
-const DeleteButton = styled.button`
-  border: solid 1px #8465e1;
-  background-color: #fff;
-  color: #8465e1;
-  padding: 5px 23px;
-  border-radius: 4px;
-  margin-left: 7px;
 `;
