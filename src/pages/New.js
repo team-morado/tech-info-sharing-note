@@ -1,16 +1,16 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import selectBtn from "../image/icon-arrow-down.svg"
 
-import Button from "../elements/Button";
-import Text from "../elements/Text";
-import { HeaderNew } from "../components/Header";
-import Footer from "../components/Footer";
+import {Button, Text} from "../elements"
 
 const ElMain = styled.main`
   display: flex;
   flex-flow: column;
   align-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
 `;
 
 const ElDiv = styled.div`
@@ -24,20 +24,19 @@ const ElInput = styled.input`
   border-radius: 4px;
   padding-left: 1rem;
   &:focus {
-    outline: 1px solid #fdb674;
+    outline: 1px solid #8465e1;
   }
 `;
 
 const ElSelect = styled.select`
-  background-color: #f9f9f9;
   width: 337px;
   height: 40px;
   border-radius: 4px;
   padding-left: 1rem;
-  //background: url("") no-repeat 95% 50%;
+  background: #f9f9f9 url(${selectBtn}) no-repeat 95% 50%;
 
   &:focus {
-    outline: 1px solid #fdb674;
+    outline: 1px solid #8465e1;
   }
 `;
 
@@ -48,7 +47,7 @@ const ElTextarea = styled.textarea`
   border-radius: 4px;
   padding: 1rem;
   &:focus {
-    outline: 1px solid #fdb674;
+    outline: 1px solid #8465e1;
   }
 `;
 
@@ -122,7 +121,6 @@ const New = ({ onCreate }) => {
 
   return (
     <ElMain>
-      <HeaderNew />
       <ElDiv>
         <Text margin="13px 0 11px 0">작성자</Text>
         <ElSelect
@@ -189,17 +187,11 @@ const New = ({ onCreate }) => {
           name="content"
         />
       </ElDiv>
+
       <Button size="medium" _onClick={handleSubmit}>
-        저장하기
+        작성완료
       </Button>
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        뒤로가기
-      </button>
-      <Footer />
+
     </ElMain>
   );
 };
