@@ -6,19 +6,18 @@ const ListItem = ({ author, title, category, url, content, created_date, }) => {
   return (
     <div>
       <ItemList>
-        {/* <hr /> */}
         <Category>
-          <div>{category}</div>
+          <p className='catType'>{category}</p>
         </Category>
-        <Contents className='align'>
+        <Contents>
           <dl>
             <dt className='bold'>{title}</dt>
-            <dd>{content}</dd>
+            <dd className='cont'>{content}</dd>
           </dl>
         </Contents>
-        <Info className='align'>
-          <time>{new Date(created_date).toLocaleDateString()}</time>
-          <div>{author}</div>
+        <Info>
+          <p className='day'>{new Date(created_date).toLocaleDateString()}</p>
+          <p className='writer'>{author}</p>
         </Info>
       </ItemList>
     </div>
@@ -34,6 +33,7 @@ const ItemList = styled.div`
   justify-content: space-between;
   padding: 0.5em 1em;
   font-size: 14px;
+  margin-top: 10px;
 
   .bold {
     font-weight: 500;
@@ -43,12 +43,11 @@ const ItemList = styled.div`
 `
 
 const Category = styled.div`
-  /* outline: 1px red solid; */
   flex: 1 0;
   text-align: center;
   margin: 0 auto;
 
-  div {
+  .catType {
     width: 50px;
     background-color: #D7F5F5;
     margin: 0 auto;
@@ -61,27 +60,25 @@ const Category = styled.div`
 `
 
 const Contents = styled.div`
-/* outline: 1px blue solid; */
   flex: 6;
   margin: 0 1em;
   padding-top: 0.5em;
 
-  dd {
+  .cont {
     margin: 0.5em 0 0 0;
     color: #999999;
   }
 
 `
 const Info = styled.div`
-/* outline: 1px green solid; */
   flex: 2;
   padding-top: 0.5em;
   text-align: right;
 
-  time {
+  .day {
     color: #C4C4C4;
   }
-  div {
+  .writer {
     margin: 0.5em 0 0 0;
     color: #666666;
   }
