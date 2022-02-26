@@ -5,6 +5,6 @@ import { Header } from "./Header";
 import ListItem from "./ListItem";
 import ListOption from "./ListOption";
 import * as Svg from "./Svg";
-import ViewCard from "./ViewCard";
+import ClipboardCopy from "./ClipboardCopy";
 
-export { Footer, Header, ListItem, ListOption, Svg, ViewCard };
+export { Footer, Header, ListItem, ListOption, Svg, ClipboardCopy };
