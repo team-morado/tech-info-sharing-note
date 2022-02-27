@@ -1,37 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import PrevBtn from "../image/icon-arrow-left.svg"
-import EditIcon from "../image/icon-edit.png";
-
-
-export const HeaderNew = () => {
-  return (
-    <HeaderCont>
-      <HeaderWrap>
-        <BtnLink to="/">
-          <img src={PrevBtn} />
-        </BtnLink>
-        <Title>공유노트</Title>
-      </HeaderWrap>
-    </HeaderCont>
-  );
-};
+import { NextBtn } from "../elements";
+import { ArrowLeft } from "./Svg";
 
 export const Header = () => {
+  const location = useLocation();
   return (
     <HeaderCont>
       <HeaderWrap>
-        <BtnLink to="/">
-          <img src={PrevBtn} />
+        <BtnLink to="/" current={location.pathname !== "/"}>
+          <ArrowLeft />
         </BtnLink>
         <Title>공유노트</Title>
       </HeaderWrap>
-
-      <Button to="/new">
-        <EditImg src={EditIcon} />
-        <BtnText>글쓰기</BtnText>
-      </Button>
+      <NextBtn />
     </HeaderCont>
   );
 };
@@ -55,29 +38,12 @@ const HeaderWrap = styled.div`
 `;
 
 const BtnLink = styled(Link)`
+  ${(props) => (props.current ? `display: block;` : `display: none;`)}
   margin-left: 1rem;
 `;
 
 const Title = styled.h1`
   color: #0f1414;
   margin-left: 0.7rem;
-`;
-
-const Button = styled(Link)`
-  background-color: #8465e1;
-  color: #fff;
-  cursor: pointer;
-  padding: 0.5rem 0.7rem;
-  margin-right: 0.7rem;
-  border-radius: 4px;
-  font-size: 1rem;
-`;
-
-const EditImg = styled.img`
-  width: 17px;
-`;
-
-const BtnText = styled.p`
-  float: right;
-  margin-left: 0.5rem;
+  letter-spacing: -0.045rem;
 `;
