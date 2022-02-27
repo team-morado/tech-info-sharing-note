@@ -24,6 +24,7 @@ const FooterWrap = styled.footer`
 `;
 
 const CopyRight = styled.p`
-  color: #666;
   font-size: 13px;
+  letter-spacing: -0.045rem;
+  color: #666;
 `;
