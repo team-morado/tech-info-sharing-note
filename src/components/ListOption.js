@@ -1,65 +1,33 @@
 import React from 'react';
 import styled from "styled-components";
 
+const ListOption = ({name, value, txt, addChecked, removeChecked}) => {
+  const checkPlus = (groupName, value) => {
+    addChecked(groupName, value);
+  }
 
-const ListOptionCreate = ({name, value, txt}) => {
+  const checkMinus = (groupName, value) => {
+    removeChecked(groupName, value);
+  }
+
+  const onClickCheckbox = (e) => {
+    const currentIs = document.querySelector(`input[value=${e.target.value}]`).checked;
+    if (currentIs) {
+      checkPlus(e.target.name, e.target.value)
+    } else {
+      checkMinus(e.target.name, e.target.value)
+    }
+  }
+
   return (
     <ListOptionItem>
-        <input name={name} type="checkbox" id={value} value={value} />
+        <input name={name} type="checkbox" id={value} value={value} onClick={onClickCheckbox} />
         <label htmlFor={value}>{txt}</label>
     </ListOptionItem>
-  )
-}
-
-const ListOption = () => {
-  return (
-    <>
-    <ListOptionRow>
-      <ListOptionType>작성자</ListOptionType>
-      <ListOptionList>
-        <ListOptionCreate name="who" value="hg" txt="효순" />
-        <ListOptionCreate name="who" value="jy" txt="지윤" />
-        <ListOptionCreate name="who" value="tina" txt="다님" />
-        <ListOptionCreate name="who" value="mj" txt="미진" />
-        <ListOptionCreate name="who" value="km" txt="규민" />
-      </ListOptionList>
-    </ListOptionRow>
-    <ListOptionRow>
-      <ListOptionType>카테고리</ListOptionType>
-      <ListOptionList>
-        <ListOptionCreate name="subject" value="html" txt="HTML" />
-        <ListOptionCreate name="subject" value="css" txt="CSS" />
-      </ListOptionList>
-    </ListOptionRow>
-    </>
   );
 };
 
 export default ListOption;
-
-
-const ListOptionRow = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 20px 3%;
-  border-bottom: 1px solid #eee;
-  box-sizing: border-box;
-`
-
-const ListOptionType = styled.strong`
-  width: 5.375rem;
-  padding-right: 0.375rem;
-  font-size: 1rem;
-  letter-spacing: -0.045rem;
-  line-height: 1.8rem;
-  box-sizing: border-box;
-`
-
-const ListOptionList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  width: calc(100% - 5.375rem);
-`
 
 const ListOptionItem = styled.li`
   width: 33.3333%;
@@ -100,8 +68,8 @@ const ListOptionItem = styled.li`
   }
   input:checked + label {
     ::before {
-      background-color: #fdb674;
-      border-color: #fdb674;
+      background-color: #8465e1;
+      border-color: #8465e1;
     }
   }
 `
