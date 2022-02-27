@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState, useRef } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { Home, NotFound, New, Splash, ViewPage } from "./pages"
-import { Footer, Header } from "./components"
+import { Home, NotFound, New, Splash, ViewPage } from "./pages";
+import { Footer, Header } from "./components";
+import CommonFunc from "./components/Common";
 
 function App() {
   const [data, setData] = useState([]);
@@ -29,6 +29,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
+        <div className="ContentInner">
         <Routes>
           <Route path="/" element={<Home dataList={data} />} />
           <Route path="/new" element={<New onCreate={onCreate} />} />
@@ -36,7 +37,9 @@ function App() {
           <Route path="/splash" element={<Splash />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        </div>
         <Footer />
+        {CommonFunc()}
       </div>
     </BrowserRouter>
   );

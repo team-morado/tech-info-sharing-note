@@ -29,7 +29,7 @@ const ListOptionGroup = () => {
   }
 
   return(
-      <div>
+      <>
     <ListOptionRow>
     <ListOptionType>작성자</ListOptionType>
     <ListOptionList>
@@ -47,10 +47,8 @@ const ListOptionGroup = () => {
       <ListOption name="category" value="css" txt="CSS" addChecked={addChecked} removeChecked={removeChecked} />
     </ListOptionList>
   </ListOptionRow>
-  </div>
+  </>
   )
-
-
 };
 
 export default ListOptionGroup;
@@ -62,7 +60,6 @@ const ListOptionRow = styled.div`
   border-bottom: 1px solid #eee;
   box-sizing: border-box;
 `
-
 const ListOptionType = styled.strong`
   width: 5.375rem;
   padding-right: 0.375rem;
@@ -71,7 +68,6 @@ const ListOptionType = styled.strong`
   line-height: 1.8rem;
   box-sizing: border-box;
 `
-
 const ListOptionList = styled.ul`
   display: flex;
   flex-wrap: wrap;
