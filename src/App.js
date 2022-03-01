@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home dataList={data} />} />
           <Route path="/new" element={<New onCreate={onCreate} />} />
-          <Route path="/view" element={<ViewPage dataList={data} />} />
+          <Route path="/view/:id" element={<ViewPage dataList={data} />} />
           <Route path="/splash" element={<Splash />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

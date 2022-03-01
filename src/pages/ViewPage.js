@@ -3,57 +3,74 @@ import { ClipboardCopy } from "./../components";
 import { Button } from "../elements";
 import ExternalLink from "./../components/Svg";
 import CategoryTag from "../elements/CategoryTag";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const ViewPage = ({ dataList }) => {
-    
-  const dummyData = [
-    {
-      id: 1,
-      author: "효순",
-      title: "안녕하세요",
-      category: "HTML",
-      url: "http://www.naver.com",
-      content: "유용한거 같아서 공유합니다.",
-      created_date: new Date().toLocaleString(),
-    },
-  ];
+  const navigate = useNavigate();
+  const [data, setData] = useState();
+  const { id } = useParams();
 
-  const { id, author, title, category, url, content, created_date } =
-    dummyData[0];
-  const dateTimeInKR = `${new Date(created_date).getFullYear()}년 ${new Date(
-    created_date
-  ).getMonth()}월 ${new Date(created_date).getDay()}일`;
+  useEffect(() => {
+    if (dataList.length >= 1) {
+      const targetData = dataList.find(
+        (it) => parseInt(it.id) === parseInt(id)
+      );
 
-  return (
-    <div>
+      if (targetData) {
+        // 게시글 id가 존재할 때
+        setData(targetData);
+      } else {
+        // 없는 게시글 id 일때
+        navigate("/", { replace: true });
+      }
+    }
+  }, [id, dataList]);
+
+  if (!data) {
+
+    return <div>로딩중입니다...</div>;
+
+  } else {
+
+    const { author, title, category, url, content, created_date } = data;
+    const dateTimeInKR = `${new Date(created_date).getFullYear()}년 ${new Date(
+      created_date
+    ).getMonth()}월 ${new Date(created_date).getDay()}일`;
+
+    return (
+      <div>
         <Container>
-        <header>
+          <header>
             <Title>{title}</Title>
             <CategoryTag category={category}>{category}</CategoryTag>
             <Wrapper>
-            <span>{author}</span>&middot;
-            <span>{dateTimeInKR}</span>
+              <span>{author}</span>&middot;
+              <span>{dateTimeInKR}</span>
             </Wrapper>
-        </header>
-        <URLCopyBoxWrapper>
+          </header>
+          <URLCopyBoxWrapper>
             <h2>공유 URL</h2>
             <ClipboardCopy url={url} />
             <a href={url} target="_blank" rel="noreferrer">
-            <ExternalLink />
-            공유페이지 새창으로 열기
+              <ExternalLink />
+              공유페이지 새창으로 열기
             </a>
-        </URLCopyBoxWrapper>
-        <ContentWrapper>
+          </URLCopyBoxWrapper>
+          <ContentWrapper>
             <h2>공유하고 싶은 이유 or 상세정보</h2>
             <Content>{content}</Content>
-        </ContentWrapper>
-        <ButtonContainer>
+          </ContentWrapper>
+          <ButtonContainer>
             <Button size="small">수정</Button>
-            <Button size="small" bg="#fff" color="#8465e1" border="#8465e1">삭제</Button>
-        </ButtonContainer>
+            <Button size="small" bg="#fff" color="#8465e1" border="#8465e1">
+              삭제
+            </Button>
+          </ButtonContainer>
         </Container>
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
 export default ViewPage;
@@ -65,16 +82,6 @@ const Container = styled.article`
 const Title = styled.h1`
   font-size: 1.25rem;
   margin-bottom: 11px;
-`;
-
-const Category = styled.p`
-  display: inline-block;
-  font-size: 1rem;
-  border: solid 1px #ebe1f6;
-  border-radius: 15px;
-  padding: 3px 12px;
-  margin-bottom: 24px;
-  background-color: #ebe1f6;
 `;
 
 const Wrapper = styled.div`
