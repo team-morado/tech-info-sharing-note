@@ -23,11 +23,13 @@ const NotFoundCont = styled.main`
 const ErrorTxt = styled.p`
   font-size: 110px;
   font-weight: 600;
+  letter-spacing: -0.045rem;
   color: #ebe1f6;
 `;
 
 const SubTxt = styled.p`
   font-size: 16px;
+  letter-spacing: -0.045rem;
   color: #c4c4c4;
   margin-top: 20px;
 `;
