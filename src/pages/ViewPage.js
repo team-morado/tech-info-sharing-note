@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ClipboardCopy } from "./../components";
 import { Button } from "../elements";
-import ExternalLink from "./../components/Svg";
+import { ExternalLink } from "./../components/Svg";
 import CategoryTag from "../elements/CategoryTag";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
