@@ -1,15 +1,14 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { NextBtn } from "../elements";
 import { ArrowLeft } from "./Svg";
 
 export const Header = () => {
-  const location = useLocation();
   return (
     <HeaderCont>
       <HeaderWrap>
-        <BtnLink to="/" current={location.pathname !== "/"}>
+        <BtnLink to="/">
           <ArrowLeft />
         </BtnLink>
         <Title>공유노트</Title>
@@ -41,7 +40,7 @@ const HeaderWrap = styled.div`
 `;
 
 const BtnLink = styled(Link)`
-  ${(props) => (props.current ? `display: block;` : `display: none;`)}
+  display: block;
   margin-left: 1rem;
 `;
 
