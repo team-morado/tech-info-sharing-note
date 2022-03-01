@@ -54,16 +54,16 @@ export const EditIcon = () => {
         <path
           d="M17.474 5.40801L19.592 7.52501L17.474 5.40801ZM18.836 3.54301L13.109 9.27001C12.8131 9.56551 12.6113 9.94199 12.529 10.352L12 13L14.648 12.47C15.058 12.388 15.434 12.187 15.73 11.891L21.457 6.16401C21.6291 5.99191 21.7656 5.7876 21.8588 5.56275C21.9519 5.33789 21.9998 5.09689 21.9998 4.85351C21.9998 4.61013 21.9519 4.36913 21.8588 4.14427C21.7656 3.91942 21.6291 3.71511 21.457 3.54301C21.2849 3.37091 21.0806 3.2344 20.8557 3.14126C20.6309 3.04812 20.3899 3.00018 20.1465 3.00018C19.9031 3.00018 19.6621 3.04812 19.4373 3.14126C19.2124 3.2344 19.0081 3.37091 18.836 3.54301V3.54301Z"
           stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M20 15V18C20 18.5304 19.7893 19.0391 19.4142 19.4142C19.0391 19.7893 18.5304 20 18 20H7C6.46957 20 5.96086 19.7893 5.58579 19.4142C5.21071 19.0391 5 18.5304 5 18V7C5 6.46957 5.21071 5.96086 5.58579 5.58579C5.96086 5.21071 6.46957 5 7 5H10"
           stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
       <defs>
@@ -74,9 +74,9 @@ export const EditIcon = () => {
           width="32"
           height="32"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"

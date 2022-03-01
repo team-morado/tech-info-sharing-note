@@ -1,14 +1,18 @@
 import "./App.css";
 import { useState, useRef } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { Home, NotFound, New, Splash, ViewPage } from "./pages";
 import { Footer, Header } from "./components";
 import CommonFunc from "./components/Common";
+import {createTechInfo} from "./shared/redux/modules/techInfo";
+import {useDispatch} from "react-redux";
 
 function App() {
   const [data, setData] = useState([]);
 
   const dataId = useRef(0);
+  const dispatch = useDispatch();
+
 
   const onCreate = (author, title, category, url, content) => {
     const created_date = new Date().getTime();
@@ -22,11 +26,10 @@ function App() {
       created_date,
     };
     dataId.current += 1;
-    setData([newItem, ...data]);
+    dispatch(createTechInfo(newItem))
   };
 
   return (
-    <BrowserRouter>
       <div className="App">
         <Header />
         <div className="ContentInner">
@@ -41,7 +44,6 @@ function App() {
         <Footer />
         {CommonFunc()}
       </div>
-    </BrowserRouter>
   );
 }
 
