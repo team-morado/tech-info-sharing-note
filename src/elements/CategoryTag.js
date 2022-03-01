@@ -5,8 +5,6 @@ const CategoryTag = (props) => {
     const {children, category} = props;
     let tagColor = "";
 
-    console.log(props);
-
     if(category === "HTML"){
         tagColor = "#EBE1F6";
     } else if (category === "CSS"){
@@ -19,8 +17,6 @@ const CategoryTag = (props) => {
         tagColor = "#D6DBDF"
     }
 
-    console.log(tagColor);
-    
   return (
     <Tag tagColor={tagColor}>
       {children}
