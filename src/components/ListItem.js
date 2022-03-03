@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import {timeForToday} from "../Util/timeForToday";
 
 
-const ListItem = ({ author, title, category, url, content, created_date, }) => {
+const ListItem = (props) => {
+  const {id, category, title, content, created_date, author, _onClick} = props;
+
   return (
-    <div>
-      <ItemList>
+      <ItemList key={id} onClick={_onClick}>
         <Category>
           <p className='catType'>{category}</p>
         </Category>
@@ -16,13 +18,16 @@ const ListItem = ({ author, title, category, url, content, created_date, }) => {
           </dl>
         </Contents>
         <Info>
-          <p className='day'>{new Date(created_date).toLocaleDateString()}</p>
+          <p className='day'>{timeForToday(created_date)}</p>
           <p className='writer'>{author}</p>
         </Info>
       </ItemList>
-    </div>
   );
 };
+
+ListItem.defaultProps = {
+  _onClick: () => {}
+}
 
 export default ListItem;
 
