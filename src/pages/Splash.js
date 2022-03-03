@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import LogoIcon from "../image/logo.svg";
 
 const Splash = () => {
   return (
     <SplashCont>
-      <Logo src={LogoIcon} />
+      <Logo src={process.env.PUBLIC_URL + 'images/logo.svg'} />
       <LogoTitle>공유노트</LogoTitle>
     </SplashCont>
   );
