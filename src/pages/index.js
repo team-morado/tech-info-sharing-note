@@ -5,5 +5,6 @@ import New from "./New";
 import NotFound from "./NotFound";
 import Splash from "./Splash";
 import ViewPage from "./ViewPage";
+import Edit from "./Edit";
 
-export {Home, New, NotFound, Splash, ViewPage};
+export {Home, New, NotFound, Splash, ViewPage, Edit};
