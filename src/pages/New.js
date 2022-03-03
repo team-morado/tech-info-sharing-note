@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-import selectBtn from "../image/icon-arrow-down.svg"
 import {Button, Text} from "../elements"
 
 
@@ -174,7 +173,7 @@ const ElSelect = styled.select`
   height: 40px;
   border-radius: 4px;
   padding-left: 1rem;
-  background: #f9f9f9 url(${selectBtn}) no-repeat 95% 50%;
+  background: #f9f9f9 url(${process.env.PUBLIC_URL + 'images/icon-arrow-down.svg'}) no-repeat 95% 50%;
 
   &:focus {
     outline: 1px solid #8465e1;
