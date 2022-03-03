@@ -1,23 +1,23 @@
 import "./App.css";
-import { useState, useRef } from "react";
+import {useEffect} from "react";
 import { Routes, Route } from "react-router-dom";
-import { Home, NotFound, New, Splash, ViewPage } from "./pages";
-import { Footer, Header } from "./components";
-import CommonFunc from "./components/Common";
-import {createTechInfo} from "./shared/redux/modules/techInfo";
+
+import {createTechInfoFB, loadTechInfoFB} from "./shared/redux/modules/techInfo";
 import {useDispatch} from "react-redux";
 
-function App() {
-  const [data, setData] = useState([]);
+import { Footer, Header, CommonFunc } from "./components";
+import { Home, NotFound, New, Splash, ViewPage, Edit } from "./pages";
 
-  const dataId = useRef(0);
+function App() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(loadTechInfoFB());
+  },[])
 
   const onCreate = (author, title, category, url, content) => {
     const created_date = new Date().getTime();
     const newItem = {
-      id: dataId.current,
       author,
       title,
       category,
@@ -25,8 +25,7 @@ function App() {
       content,
       created_date,
     };
-    dataId.current += 1;
-    dispatch(createTechInfo(newItem))
+    dispatch(createTechInfoFB(newItem));
   };
 
   return (
@@ -34,9 +33,10 @@ function App() {
         <Header />
         <div className="ContentInner">
         <Routes>
-          <Route path="/" element={<Home dataList={data} />} />
+          <Route path="/" element={<Home />} />
           <Route path="/new" element={<New onCreate={onCreate} />} />
-          <Route path="/view/:id" element={<ViewPage dataList={data} />} />
+          <Route path="/view/:index" element={<ViewPage />} />
+          <Route path="/view/:index" element={<Edit />} />
           <Route path="/splash" element={<Splash />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
