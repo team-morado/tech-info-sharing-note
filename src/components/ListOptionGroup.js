@@ -1,32 +1,7 @@
-import { useState, useEffect } from 'react';
 import ListOption from "../components/ListOption";
 import styled from "styled-components";
 
-const ListOptionGroup = () => {
-
-  const [optChecked, setOptChecked] = useState({
-      author: [],
-      category: []
-  });
-
-  useEffect(()=> { console.log("useEffect"); console.log(optChecked); }, [optChecked]);
-
-  const addChecked = (groupName, value)=> {
-    setOptChecked({
-        ...optChecked,
-        [groupName] : [...optChecked[groupName], value]
-      }
-    );
-    
-  }
-
-  const removeChecked = (groupName ,value) => {
-    const newChkList = optChecked[groupName].filter((it) => it !== value);
-    setOptChecked({
-      ...optChecked,
-      [groupName] : newChkList
-    });
-  }
+const ListOptionGroup = ({addChecked, removeChecked}) => {
 
   return(
       <>
