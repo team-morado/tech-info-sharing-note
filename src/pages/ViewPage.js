@@ -51,7 +51,7 @@ const ViewPage = () => {
       <Container>
         <header>
           <Title>{techInfo_list[techInfo_index] ? techInfo_list[techInfo_index].title : ""}</Title>
-          <CategoryTag category={techInfo_list[techInfo_index].category}>{techInfo_list[techInfo_index].category}</CategoryTag>
+          <CategoryTag category={techInfo_list[techInfo_index].category} type="long">{techInfo_list[techInfo_index].category}</CategoryTag>
           <Wrapper>
             <span>{techInfo_list[techInfo_index].author}</span>&middot;
             <span>{dateTimeInKR}</span>
