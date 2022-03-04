@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { CategoryTag } from '../elements';
 import {timeForToday} from "../Util/timeForToday";
 
 
@@ -8,9 +9,9 @@ const ListItem = (props) => {
 
   return (
       <ItemList key={id} onClick={_onClick}>
-        <Category>
+        <CategoryTag category={category} type="square">
           <p className='catType'>{category}</p>
-        </Category>
+        </CategoryTag>
         <Contents>
           <dl>
             <dt className='bold'>{title}</dt>
@@ -59,7 +60,7 @@ const Category = styled.div`
   .catType {
     width: 50px;
     background-color: #D7F5F5;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     line-height: 50px;
     border-radius: 10px;
     box-sizing: border-box;
