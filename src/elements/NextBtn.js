@@ -3,10 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { EditIcon } from "../components/Svg";
 
-const Next = () => {
+const NextBtn = () => {
   const location = useLocation();
   return (
-    <Button to="/new" current={location.pathname === "/"}>
+    <Button to="/new" current={location.pathname === "/" ? 1 : 0}>
       <EditIcon />
       <BtnText>글쓰기</BtnText>
     </Button>
@@ -30,4 +30,4 @@ const BtnText = styled.p`
   letter-spacing: -0.045rem;
 `;
 
-export default Next;
+export default NextBtn;
