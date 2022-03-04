@@ -1,17 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
-import ListItem from "../components/ListItem";
-import ListOptionGroup from "../components/ListOptionGroup";
+import { ListItem, ListOptionGroup } from "../components";
 
 const Home = () => {
-  const dataList = useSelector((state) => state.techInfo.list);
+  const navigate = useNavigate();
+  const techInfo_list = useSelector((state) => state.techInfo.list);
+
   return (
     <div>
       <ListOptionGroup />
-      {dataList.map((it) => {
-        return <ListItem key={it.id} {...it} />;
-      })}
+      {techInfo_list.map((it, index) => (
+        <ListItem
+          key={it.id}
+          {...it}
+          _onClick={() => {
+            navigate("/view/" + index);
+          }}
+        />
+      ))}
     </div>
   );
 };

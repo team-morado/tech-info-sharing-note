@@ -1,55 +1,9 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import selectBtn from "../image/icon-arrow-down.svg"
 
 import {Button, Text} from "../elements"
 
-const ElMain = styled.main`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  padding-left: 3%;
-  padding-right: 3%;
-`;
-
-const ElDiv = styled.div`
-  margin-bottom: 19px;
-`;
-
-const ElInput = styled.input`
-  background-color: #f9f9f9;
-  width: 337px;
-  height: 40px;
-  border-radius: 4px;
-  padding-left: 1rem;
-  &:focus {
-    outline: 1px solid #8465e1;
-  }
-`;
-
-const ElSelect = styled.select`
-  width: 337px;
-  height: 40px;
-  border-radius: 4px;
-  padding-left: 1rem;
-  background: #f9f9f9 url(${selectBtn}) no-repeat 95% 50%;
-
-  &:focus {
-    outline: 1px solid #8465e1;
-  }
-`;
-
-const ElTextarea = styled.textarea`
-  background-color: #f9f9f9;
-  width: 337px;
-  height: 10rem;
-  border-radius: 4px;
-  padding: 1rem;
-  &:focus {
-    outline: 1px solid #8465e1;
-  }
-`;
 
 const New = ({ onCreate }) => {
   const navigate = useNavigate();
@@ -76,27 +30,27 @@ const New = ({ onCreate }) => {
   };
 
   const handleSubmit = () => {
-    if (state.author.length < 1) {
+    if (authorRef.current.value.length < 1) {
       authorRef.current.focus();
       return;
     }
 
-    if (state.title.length < 3) {
+    if (titleRef.current.value.length < 3) {
       titleRef.current.focus();
       return;
     }
 
-    if (state.category.length < 1) {
+    if (categoryRef.current.value.length < 1) {
       categoryRef.current.focus();
       return;
     }
 
-    if (state.url.length < 5) {
+    if (urlRef.current.value.length < 5) {
       urlRef.current.focus();
       return;
     }
 
-    if (state.content.length < 5) {
+    if (contentRef.current.value.length < 5) {
       contentRef.current.focus();
       return;
     }
@@ -109,13 +63,6 @@ const New = ({ onCreate }) => {
       state.content
     );
     alert("저장 성공");
-    setState({
-      author: "",
-      title: "",
-      category: "",
-      url: "",
-      content: "",
-    });
     navigate("/");
   };
 
@@ -197,3 +144,49 @@ const New = ({ onCreate }) => {
 };
 
 export default New;
+
+const ElMain = styled.main`
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-left: 3%;
+  padding-right: 3%;
+`;
+
+const ElDiv = styled.div`
+  margin-bottom: 19px;
+`;
+
+const ElInput = styled.input`
+  background-color: #f9f9f9;
+  width: 337px;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 1rem;
+  &:focus {
+    outline: 1px solid #8465e1;
+  }
+`;
+
+const ElSelect = styled.select`
+  width: 337px;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 1rem;
+  background: #f9f9f9 url(${process.env.PUBLIC_URL + 'images/icon-arrow-down.svg'}) no-repeat 95% 50%;
+
+  &:focus {
+    outline: 1px solid #8465e1;
+  }
+`;
+
+const ElTextarea = styled.textarea`
+  background-color: #f9f9f9;
+  width: 337px;
+  height: 10rem;
+  border-radius: 4px;
+  padding: 1rem;
+  &:focus {
+    outline: 1px solid #8465e1;
+  }
+`;
