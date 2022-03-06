@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
-import { useState } from 'react';
 import { ListItem, ListOptionGroup} from "../components";
 
 
