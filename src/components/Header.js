@@ -1,14 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { NextBtn } from "../elements";
 import { ArrowLeft } from "./Svg";
 
 export const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   return (
     <HeaderCont>
       <HeaderWrap>
-        <BtnLink to="/">
+        <BtnLink
+          type="button"
+          onClick={() => navigate(-1)}
+          current={location.pathname !== "/" ? 1 : 0}
+        >
           <ArrowLeft />
         </BtnLink>
         <Title>공유노트</Title>
@@ -39,8 +45,8 @@ const HeaderWrap = styled.div`
   align-items: center;
 `;
 
-const BtnLink = styled(Link)`
-  display: block;
+const BtnLink = styled.button`
+  display: ${(props) => (props.current ? "block" : "none")};
   margin-left: 1rem;
 `;
 
