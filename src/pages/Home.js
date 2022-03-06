@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import { useState } from 'react';
 import { ListItem, ListOptionGroup} from "../components";
 
+
 const Home = () => {
   const navigate = useNavigate();
   const techInfo_list = useSelector((state) => state.techInfo.list);

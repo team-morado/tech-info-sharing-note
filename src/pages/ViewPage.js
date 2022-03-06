@@ -14,17 +14,44 @@ const ViewPage = () => {
   const params = useParams();
   const techInfo_index = params.index;
   const techInfo_list = useSelector((state) => state.techInfo.list);
+  const timeData = new Date(techInfo_list[techInfo_index].created_date);
+  const year = timeData.getFullYear();
+  const month = timeData.getMonth() + 1;
+  const day = timeData.getDate();
+  const hour = timeData.getHours();
+  const minutes = timeData.getMinutes();
 
-  const dateTimeInKR = `${new Date(techInfo_list[techInfo_index].created_date).getFullYear()}년 ${new Date(
-    techInfo_list[techInfo_index].created_date
-  ).getMonth()}월 ${new Date(techInfo_list[techInfo_index].created_date).getDay()}일`;
+  const setAmPm = hour >= 0 && hour < 12 ? "오전" : "오후";
+  
+  // 12시간제 표시
+  let hour12H = 0;
+  if(hour == 12){
+    hour12H = hour;
+  } else if(hour == 0) {
+    hour12H = 12;
+  } else {
+    hour12H = hour%12;
+  }
+
+  if(hour12H < 10) {
+    hour12H = "0" + hour12H;
+  }
+
+  let minutes12H = 0;
+  if(minutes < 10){
+    minutes12H = "0" + minutes;
+  } else {
+    minutes12H = minutes;
+  }
+
+  const dateTimeInKR = `${year}년 ${month}월 ${day}일 ${setAmPm} ${hour12H}:${minutes12H}`;
 
   return (
     <div>
       <Container>
         <header>
           <Title>{techInfo_list[techInfo_index] ? techInfo_list[techInfo_index].title : ""}</Title>
-          <CategoryTag category={techInfo_list[techInfo_index].category}>{techInfo_list[techInfo_index].category}</CategoryTag>
+          <CategoryTag category={techInfo_list[techInfo_index].category} type="long">{techInfo_list[techInfo_index].category}</CategoryTag>
           <Wrapper>
             <span>{techInfo_list[techInfo_index].author}</span>&middot;
             <span>{dateTimeInKR}</span>
