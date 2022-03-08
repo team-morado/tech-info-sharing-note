@@ -10,85 +10,121 @@ const Home = () => {
 
   const firstData = [
   { id: 1,
-    txt_author: "지윤",
+    author: "지윤",
     category: "JS",
     content: "공유하고싶다",
     created_date: 1646313227990,
     title: "테스트테스트",
     url: "dgfdg",
-    author: "jy"
   },
   { id: 2,
-    txt_author: "규민",
+    author: "규민",
     category: "React",
     content: "공부를 합시다",
     created_date: 1646313227990,
     title: "테스트테스트",
-    url: "asdasdas",
-    author: "km"
+    url: "asdasdas"
   },
   { id: 3,
-    txt_author: "다님",
+    author: "다님",
     category: "CSS",
     content: "디자인을 만들어보자",
     created_date: 1646313227990,
     title: "테스트테스트",
-    url: "dgfdg",
-    author: 'tina'
+    url: "dgfdg"
   },
   { id: 4,
-    txt_author: "미진",
+    author: "미진",
     category: "CSS",
     content: "디자인을 만들어보자",
     created_date: 1646313227990,
     title: "테스트테스트",
-    url: "dgfdg",
-    author: 'mj'
+    url: "dgfdg"
+  },
+  { id: 5,
+    author: "미진",
+    category: "HTML",
+    content: "HTML내용이지요",
+    created_date: 1646313227990,
+    title: "테스트테스트",
+    url: "dgfdg"
   }
 ]
+
   const [authorChecked, setAuthorChecked] = useState([]);
   const [catChecked, setCatChecked] = useState([]);
   const [infoData, setInfoData] = useState(firstData);
-  
+
 const addChecked = (groupName, value)=> {
 
-  let arr1 = authorChecked.length === 0 ? [] : firstData.filter((obj) => { return authorChecked.includes(obj.author) !== false } );
-  let arr2 = firstData.filter((obj) => obj[groupName] === value);
-  let arr3 = catChecked.length === 0 ? [] : firstData.filter((obj) => { return catChecked.includes(obj.category) !== false } );
-  let arr4 = arr1.concat(arr2).concat(arr3);
-  setInfoData(arr4);
+  let authorStandard = authorChecked;
+  let CateStandard = catChecked;
   
-
   if (groupName === 'author') {
     setAuthorChecked(
       [...authorChecked, value]
     )
+    authorStandard = [...authorChecked, value];
   }
   
   if (groupName === 'category') {
     setCatChecked(
       [...catChecked, value]
     )
+    CateStandard = [...catChecked, value]
   }
 
+
+  let authorChkData = firstData.filter((obj) => { return authorStandard.includes(obj.author) !== false});
+  let CateChkData = firstData.filter((obj) => { return CateStandard.includes(obj.category) !== false});
+  let DobuleChkData = authorChkData.filter((obj) => { return CateStandard.includes(obj.category) !== false});
+
+  if(authorStandard.length !== 0 && CateStandard.length === 0) {
+    return setInfoData(authorChkData)
+  } else if (authorStandard.length === 0 && CateStandard.length !== 0) {
+    return setInfoData(CateChkData)
+  } else if (authorStandard.length !== 0 && CateStandard.length !== 0) {
+    return setInfoData(DobuleChkData)
+  }
+  
 }
 
 const removeChecked = (groupName ,value) => {
 
+  let authorStandard = authorChecked;
+  let CateStandard = catChecked;
+
   if (groupName === 'author') {
     const newAuthorList = authorChecked.filter((it) => it !== value);
     setAuthorChecked(newAuthorList);
+    authorStandard = authorChecked.filter((it) => it !== value);
   }
   
   if (groupName === 'category') {
     const newCatList = catChecked.filter((it) => it !== value);
     setCatChecked(newCatList);
+    CateStandard = catChecked.filter((it) => it !== value);
   }
+
+  let authorChkData = firstData.filter((obj) => { return authorStandard.includes(obj.author) !== false});
+  let CateChkData = firstData.filter((obj) => { return CateStandard.includes(obj.category) !== false});
+  let removedData = infoData.filter((obj) => obj[groupName] !== value);
+
+  if (authorStandard.length === 0 && CateStandard.length === 0) {
+    return setInfoData(firstData)
+  } else if (authorStandard.length !== 0 && CateStandard.length === 0) {
+    return setInfoData(authorChkData);
+  } else if (CateStandard.length !== 0 && authorStandard.length === 0) {
+    return setInfoData(CateChkData);
+  } else {
+    return setInfoData(removedData)
+  }
+
 }
 
   return (
     <div>
-      <ListOptionGroup addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOptionGroup addChecked={addChecked} removeChecked={removeChecked}  />
       {infoData.map((it, index) => {
           return(
               <ListItem key={it.id} {...it} _onClick={() => {navigate('/view/' + index)}} />
