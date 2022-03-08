@@ -36,7 +36,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/new" element={<New onCreate={onCreate} />} />
           <Route path="/view/:index" element={<ViewPage />} />
-          <Route path="/view/:index" element={<Edit />} />
+          <Route path="/edit/:index" element={<Edit />} />
           <Route path="/splash" element={<Splash />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

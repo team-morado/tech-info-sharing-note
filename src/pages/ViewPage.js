@@ -70,12 +70,7 @@ const ViewPage = () => {
           <Content>{techInfo_list[techInfo_index].content}</Content>
         </ContentWrapper>
         <ButtonContainer>
-          <Button size="small" _onClick={() => {
-            // dispatch(updateTechInfoFB(techInfo_list[techInfo_index].id));
-            console.log(techInfo_list[techInfo_index].id)
-            navigate("/")
-
-          }}>수정</Button>
+          <Button size="small" _onClick={() => {navigate('/edit/' + techInfo_index)}}>수정</Button>
           <Button size="small" bg="#fff" color="#8465e1" border="#8465e1" _onClick={() => {
             if(window.confirm("정말 삭제하시겠습니까?")) {
               dispatch(deleteTechInfoFB(techInfo_list[techInfo_index].id));
