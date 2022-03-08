@@ -8,7 +8,7 @@ const ListOptionGroup = ({addChecked, removeChecked}) => {
     <ListOptionRow>
     <ListOptionType>작성자</ListOptionType>
     <ListOptionList>
-      <ListOption name="author" value="hg" txt="효순" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="author" value="hs" txt="효순" addChecked={addChecked} removeChecked={removeChecked} />
       <ListOption name="author" value="jy" txt="지윤" addChecked={addChecked} removeChecked={removeChecked} />
       <ListOption name="author" value="tina" txt="다님" addChecked={addChecked} removeChecked={removeChecked} />
       <ListOption name="author" value="mj" txt="미진" addChecked={addChecked} removeChecked={removeChecked} />

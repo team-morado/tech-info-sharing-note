@@ -5,7 +5,7 @@ import {timeForToday} from "../Util/timeForToday";
 
 
 const ListItem = (props) => {
-  const {id, category, title, content, created_date, author, _onClick} = props;
+  const {id, category, title, content, created_date, txt_author, _onClick} = props;
 
   return (
       <ItemList key={id} onClick={_onClick}>
@@ -20,7 +20,7 @@ const ListItem = (props) => {
         </Contents>
         <Info>
           <p className='day'>{timeForToday(created_date)}</p>
-          <p className='writer'>{author}</p>
+          <p className='writer'>{txt_author}</p>
         </Info>
       </ItemList>
   );
