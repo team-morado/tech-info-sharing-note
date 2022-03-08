@@ -58,7 +58,7 @@ const Home = () => {
 const addChecked = (groupName, value)=> {
 
   let authorStandard = authorChecked;
-  let CateStandard = catChecked;
+  let cateStandard = catChecked;
   
   if (groupName === 'author') {
     setAuthorChecked(
@@ -71,20 +71,20 @@ const addChecked = (groupName, value)=> {
     setCatChecked(
       [...catChecked, value]
     )
-    CateStandard = [...catChecked, value]
+    cateStandard = [...catChecked, value]
   }
 
 
   let authorChkData = firstData.filter((obj) => { return authorStandard.includes(obj.author) !== false});
-  let CateChkData = firstData.filter((obj) => { return CateStandard.includes(obj.category) !== false});
-  let DobuleChkData = authorChkData.filter((obj) => { return CateStandard.includes(obj.category) !== false});
+  let cateChkData = firstData.filter((obj) => { return cateStandard.includes(obj.category) !== false});
+  let doubleChkData = authorChkData.filter((obj) => { return cateStandard.includes(obj.category) !== false});
 
-  if(authorStandard.length !== 0 && CateStandard.length === 0) {
+  if(authorStandard.length !== 0 && cateStandard.length === 0) {
     return setInfoData(authorChkData)
-  } else if (authorStandard.length === 0 && CateStandard.length !== 0) {
-    return setInfoData(CateChkData)
-  } else if (authorStandard.length !== 0 && CateStandard.length !== 0) {
-    return setInfoData(DobuleChkData)
+  } else if (authorStandard.length === 0 && cateStandard.length !== 0) {
+    return setInfoData(cateChkData)
+  } else if (authorStandard.length !== 0 && cateStandard.length !== 0) {
+    return setInfoData(doubleChkData)
   }
   
 }
@@ -92,7 +92,7 @@ const addChecked = (groupName, value)=> {
 const removeChecked = (groupName ,value) => {
 
   let authorStandard = authorChecked;
-  let CateStandard = catChecked;
+  let cateStandard = catChecked;
 
   if (groupName === 'author') {
     const newAuthorList = authorChecked.filter((it) => it !== value);
@@ -103,19 +103,19 @@ const removeChecked = (groupName ,value) => {
   if (groupName === 'category') {
     const newCatList = catChecked.filter((it) => it !== value);
     setCatChecked(newCatList);
-    CateStandard = catChecked.filter((it) => it !== value);
+    cateStandard = catChecked.filter((it) => it !== value);
   }
 
   let authorChkData = firstData.filter((obj) => { return authorStandard.includes(obj.author) !== false});
-  let CateChkData = firstData.filter((obj) => { return CateStandard.includes(obj.category) !== false});
+  let cateChkData = firstData.filter((obj) => { return cateStandard.includes(obj.category) !== false});
   let removedData = infoData.filter((obj) => obj[groupName] !== value);
 
-  if (authorStandard.length === 0 && CateStandard.length === 0) {
+  if (authorStandard.length === 0 && cateStandard.length === 0) {
     return setInfoData(firstData)
-  } else if (authorStandard.length !== 0 && CateStandard.length === 0) {
+  } else if (authorStandard.length !== 0 && cateStandard.length === 0) {
     return setInfoData(authorChkData);
-  } else if (CateStandard.length !== 0 && authorStandard.length === 0) {
-    return setInfoData(CateChkData);
+  } else if (cateStandard.length !== 0 && authorStandard.length === 0) {
+    return setInfoData(cateChkData);
   } else {
     return setInfoData(removedData)
   }
