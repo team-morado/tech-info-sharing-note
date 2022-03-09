@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
-const ListOption = ({name, value, txt, addChecked, removeChecked}) => {
+const ListOption = ({name, value, data, addChecked, removeChecked}) => {
   const checkPlus = (groupName, value) => {
     addChecked(groupName, value);
   }
@@ -21,8 +21,8 @@ const ListOption = ({name, value, txt, addChecked, removeChecked}) => {
 
   return (
     <ListOptionItem>
-        <input name={name} type="checkbox" id={value} value={value} onClick={onClickCheckbox} />
-        <label htmlFor={value}>{txt}</label>
+        <input name={name} type="checkbox" id={data} value={value} onClick={onClickCheckbox} />
+        <label htmlFor={data}>{value}</label>
     </ListOptionItem>
   );
 };
