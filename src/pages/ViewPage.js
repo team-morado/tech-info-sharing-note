@@ -27,9 +27,9 @@ const ViewPage = () => {
   
   // 12시간제 표시
   let hour12H = 0;
-  if(hour == 12){
+  if(hour === 12){
     hour12H = hour;
-  } else if(hour == 0) {
+  } else if(hour === 0) {
     hour12H = 12;
   } else {
     hour12H = hour%12;
