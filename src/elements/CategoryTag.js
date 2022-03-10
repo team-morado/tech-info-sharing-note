@@ -31,7 +31,7 @@ const typeStyles = css`
     `}
 `
 
-const Tag = styled.p`
+const Tag = styled.div`
     display: inline-block;
     text-align: center;
     border: none;
