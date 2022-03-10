@@ -53,23 +53,6 @@ const ItemList = styled.div`
 
 `
 
-const Category = styled.div`
-  flex: 1 0;
-  text-align: center;
-  margin: 0 auto;
-
-  .catType {
-    width: 50px;
-    background-color: #D7F5F5;
-    /* margin: 0 auto; */
-    line-height: 50px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    font-size: 14px;
-    font-weight: 700;
-  }
-`
-
 const Contents = styled.div`
   flex: 6;
   margin-left: 1em;
