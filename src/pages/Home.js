@@ -10,7 +10,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const techInfo_list = useSelector((state) => state.techInfo.list);
-
+  
   const [authorChecked, setAuthorChecked] = useState([]);
   const [catChecked, setCatChecked] = useState([]);
 
@@ -55,7 +55,7 @@ const Home = () => {
   return (
     <div>
       <ListOptionGroup addChecked={addChecked} removeChecked={removeChecked}/>
-      {techInfo_list.map((it, index) => {
+      {techInfo_list.sort((a,b) => b.created_date-a.created_date).map((it, index) => {
         return (
           <ListItem key={it.id} {...it} _onClick={() => {
             navigate('/view/' + index)

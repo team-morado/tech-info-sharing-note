@@ -14,6 +14,8 @@ const ViewPage = () => {
   const params = useParams();
   const techInfo_index = params.index;
   const techInfo_list = useSelector((state) => state.techInfo.list);
+
+  // 작성일시 표시
   const timeData = new Date(techInfo_list[techInfo_index].created_date);
   const year = timeData.getFullYear();
   const month = timeData.getMonth() + 1;
@@ -142,6 +144,7 @@ const Content = styled.p`
   overflow: scroll;
   overflow-x: hidden;
   line-height: 20px;
+  white-space: pre-wrap;
 `;
 
 const ButtonContainer = styled.div`
