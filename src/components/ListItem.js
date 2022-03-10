@@ -47,6 +47,9 @@ const ItemList = styled.div`
   width: inherit;
   align-items: center;
   .bold {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-weight: 500;
     font-size: 16px;
   }
@@ -59,7 +62,7 @@ const ItemList = styled.div`
 const Contents = styled.div`
   margin-left: 1em;
   max-height: 40px;
-  width: calc(100% - 130px);
+  width: calc(100% - 150px);
   .cont {
       overflow: hidden;
       white-space: nowrap;
