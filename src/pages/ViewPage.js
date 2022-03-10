@@ -15,9 +15,6 @@ const ViewPage = () => {
   const techInfo_index = params.index;
   const techInfo_list = useSelector((state) => state.techInfo.list);
 
-  // 본문 개행 처리를 위한 배열 생성
-  const contentLines = techInfo_list[techInfo_index].content.split("\n")
-
   // 작성일시 표시
   const timeData = new Date(techInfo_list[techInfo_index].created_date);
   const year = timeData.getFullYear();
@@ -72,13 +69,7 @@ const ViewPage = () => {
         </URLCopyBoxWrapper>
         <ContentWrapper>
           <h2>공유하고 싶은 이유 or 상세정보</h2>
-          <Content>{
-              contentLines.map((line, idx) => {
-                  return (
-                      <li key={idx}>{line}</li>
-                )
-            })
-          }</Content>
+          <Content>{techInfo_list[techInfo_index].content}</Content>
         </ContentWrapper>
         <ButtonContainer>
           <Button size="small" _onClick={() => {navigate('/edit/' + techInfo_index)}}>수정</Button>
@@ -153,6 +144,7 @@ const Content = styled.p`
   overflow: scroll;
   overflow-x: hidden;
   line-height: 20px;
+  white-space: pre-wrap;
 `;
 
 const ButtonContainer = styled.div`
