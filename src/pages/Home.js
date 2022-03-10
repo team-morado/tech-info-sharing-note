@@ -55,11 +55,7 @@ const Home = () => {
   return (
     <div>
       <ListOptionGroup addChecked={addChecked} removeChecked={removeChecked}/>
-      {techInfo_list.sort((a,b) => {
-          if(a.created_date > b.created_date){
-              return -1;
-          }
-      }).map((it, index) => {
+      {techInfo_list.sort((a,b) => b.created_date-a.created_date).map((it, index) => {
         return (
           <ListItem key={it.id} {...it} _onClick={() => {
             navigate('/view/' + index)
