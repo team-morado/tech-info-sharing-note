@@ -48,7 +48,6 @@ const ViewPage = () => {
 
   const dateTimeInKR = `${year}년 ${month}월 ${day}일 ${setAmPm} ${hour12H}:${minutes12H}`;
 
-  console.log("테스트")
   return (
     <div>
       <Container>
