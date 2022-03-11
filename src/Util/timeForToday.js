@@ -13,10 +13,15 @@ export const timeForToday = (value) => {
     return `${betweenTimeHour}시간전`;
   }
 
+  const year = timeValue.getFullYear();
+  const month = timeValue.getMonth()+1 < 10 ? "0"+(timeValue.getMonth()+1) : timeValue.getMonth()+1;
+  const date = timeValue.getDate() < 10 ? "0"+(timeValue.getDate()) : timeValue.getDate();
+
   const betweenTimeDay = Math.floor(betweenTime / 60 / 24);
-  if (betweenTimeDay < 365) {
-    return `${betweenTimeDay}일전`;
+  if(betweenTimeDay <= 2){
+      return `${betweenTimeDay}일전`
+  } else if(betweenTimeDay > 2){
+      return `${year}-${month}-${date}`;
   }
 
-  return `${Math.floor(betweenTimeDay / 365)}년전`;
 }
