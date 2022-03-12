@@ -1,19 +1,16 @@
 import "./App.css";
-import {useEffect} from "react";
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 
-import {createTechInfoFB, loadTechInfoFB} from "./shared/redux/modules/techInfo";
-import {useDispatch} from "react-redux";
+import {createTechInfoFB} from "./shared/redux/modules/techInfo";
+import {useDispatch, useSelector} from "react-redux";
 
-import { Footer, Header, CommonFunc } from "./components";
-import { Home, NotFound, New, Splash, ViewPage, Edit } from "./pages";
+import {Footer, Header, CommonFunc} from "./components";
+import {Home, NotFound, New, Splash, ViewPage, Edit} from "./pages";
+import Loading from "./pages/Loading";
 
 function App() {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadTechInfoFB());
-  },[])
+  const is_loaded = useSelector((state) => state.techInfo.is_loaded);
 
   const onCreate = (author, title, category, url, content) => {
     const created_date = new Date().getTime();
@@ -29,21 +26,23 @@ function App() {
   };
 
   return (
-      <div className="App">
-        <Header />
-        <div className="ContentInner">
+    <div className="App">
+      <Header/>
+      <div className="ContentInner">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/new" element={<New onCreate={onCreate} />} />
-          <Route path="/view/:index" element={<ViewPage />} />
-          <Route path="/edit/:index" element={<Edit />} />
-          <Route path="/splash" element={<Splash />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home/>}/>
+          <Route path="/new" element={<New onCreate={onCreate}/>}/>
+          <Route path="/view/:index" element={<ViewPage/>}/>
+          <Route path="/edit/:index" element={<Edit/>}/>
+          <Route path="/splash" element={<Splash/>}/>
+          <Route path="/loading" element={<Loading/>}/>
+          <Route path="*" element={<NotFound/>}/>
         </Routes>
-        </div>
-        <Footer />
-        {CommonFunc()}
       </div>
+      <Footer/>
+      {!is_loaded && <Loading/>}
+      {CommonFunc()}
+    </div>
   );
 }
 
