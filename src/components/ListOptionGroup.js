@@ -1,50 +1,27 @@
-import { useState, useEffect } from 'react';
 import ListOption from "../components/ListOption";
 import styled from "styled-components";
 
-const ListOptionGroup = () => {
-
-  const [optChecked, setOptChecked] = useState({
-      author: [],
-      category: []
-  });
-
-  useEffect(()=> { console.log("useEffect"); console.log(optChecked); }, [optChecked]);
-
-  const addChecked = (groupName, value)=> {
-    setOptChecked({
-        ...optChecked,
-        [groupName] : [...optChecked[groupName], value]
-      }
-    );
-    
-  }
-
-  const removeChecked = (groupName ,value) => {
-    const newChkList = optChecked[groupName].filter((it) => it !== value);
-    setOptChecked({
-      ...optChecked,
-      [groupName] : newChkList
-    });
-  }
+const ListOptionGroup = ({addChecked, removeChecked}) => {
 
   return(
       <>
     <ListOptionRow>
     <ListOptionType>작성자</ListOptionType>
     <ListOptionList>
-      <ListOption name="author" value="hg" txt="효순" addChecked={addChecked} removeChecked={removeChecked} />
-      <ListOption name="author" value="jy" txt="지윤" addChecked={addChecked} removeChecked={removeChecked} />
-      <ListOption name="author" value="tina" txt="다님" addChecked={addChecked} removeChecked={removeChecked} />
-      <ListOption name="author" value="mj" txt="미진" addChecked={addChecked} removeChecked={removeChecked} />
-      <ListOption name="author" value="km" txt="규민" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="author" data="hs" value="효순" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="author" data="jy" value="지윤" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="author" data="tina" value="다님" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="author" data="mj" value="미진" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="author" data="km" value="규민" addChecked={addChecked} removeChecked={removeChecked} />
     </ListOptionList>
   </ListOptionRow>
   <ListOptionRow>
     <ListOptionType>카테고리</ListOptionType>
     <ListOptionList>
-      <ListOption name="category" value="html" txt="HTML" addChecked={addChecked} removeChecked={removeChecked} />
-      <ListOption name="category" value="css" txt="CSS" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="category" data="html" value="HTML" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="category" data="css" value="CSS" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="category" data="javascript" value="JS" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="category" data="react" value="React" addChecked={addChecked} removeChecked={removeChecked} />
     </ListOptionList>
   </ListOptionRow>
   </>

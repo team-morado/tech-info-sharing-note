@@ -55,6 +55,11 @@ const New = ({ onCreate }) => {
       return;
     }
 
+    // URL에 프로토콜이 없는 경우 프로토콜 붙여서 저장하기
+    if(!state.url.includes("http://") && !state.url.includes("https://")){
+        state.url = "http://"+state.url;
+    }
+
     onCreate(
       state.author,
       state.title,
@@ -62,6 +67,7 @@ const New = ({ onCreate }) => {
       state.url,
       state.content
     );
+    
     alert("저장 성공");
     navigate("/");
   };
