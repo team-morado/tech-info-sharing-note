@@ -1,16 +1,20 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {ListItem, ListOptionGroup} from "../components";
-import {addCategoryFB, removeCategoryFB} from "../shared/redux/modules/techInfo";
-
+import {addCategoryFB, loadTechInfoFB, removeCategoryFB} from "../shared/redux/modules/techInfo";
 
 const Home = () => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(loadTechInfoFB());
+  }, [])
+
   const techInfo_list = useSelector((state) => state.techInfo.list);
-  
+
   const [authorChecked, setAuthorChecked] = useState([]);
   const [catChecked, setCatChecked] = useState([]);
 

@@ -13,6 +13,7 @@ const REMOVE_CHECKED = 'REMOVE_CHECKED';
 
 // 초기값 설정
 const initialState = {
+  is_loaded: false,
   list: [],
   authorChecked: [],
   catChecked: [],
@@ -159,17 +160,17 @@ export const removeCategoryFB = (authorStandard, cateStandard, groupName, value)
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case "techInfo/LOAD": {
-      return {list: action.techInfo_list};
+      return {list: action.techInfo_list, is_loaded: true};
     }
     case "techInfo/CREATE": {
       const new_techInfo_list = [...state.list, action.techInfo];
-      return {list: new_techInfo_list}
+      return {...state, list: new_techInfo_list}
     }
     case "techInfo/DELETE": {
       const new_techInfo_list = state.list.filter((l, idx) => {
         return parseInt(action.techInfo_id) !== idx;
       });
-      return {list: new_techInfo_list}
+      return {...state, list: new_techInfo_list}
     }
     case "techInfo/UPDATE": {
       const new_techInfo_list = state.list.map((l, idx) => {
@@ -179,13 +180,13 @@ export default function reducer(state = initialState, action = {}) {
           return l
         }
       });
-      return {list: new_techInfo_list};
+      return {...state, list: new_techInfo_list};
     }
     case "ADD_CHECKED": {
-      return {list: action.techInfo_list};
+      return {...state, list: action.techInfo_list};
     }
     case "REMOVE_CHECKED": {
-      return {list: action.techInfo_list};
+      return {...state, list: action.techInfo_list};
     }
     default:
       return state;
