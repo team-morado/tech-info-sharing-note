@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { NextBtn } from "../elements";
 import { ArrowLeft } from "./Svg";
@@ -43,6 +43,10 @@ const HeaderWrap = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+
+  svg {
+    vertical-align: middle;
+  }
 `;
 
 const BtnLink = styled.button`
