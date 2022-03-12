@@ -23,12 +23,14 @@ const LoadingContainer = styled.main`
   left: 0;
   width: 100vw;
   height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 100;
 `;
 
 const Title = styled.h1`
   font-size: 25px;
   font-weight: 500;
-  margin-top: 40px;
+  margin-top: 30px;
   text-align: center;
   color: #8465e1;
 `;

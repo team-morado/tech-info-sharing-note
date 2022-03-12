@@ -23,7 +23,13 @@ const NotFoundCont = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
+  background: #fff;
+  z-index: 200;
 `;
 
 const ErrorTxt = styled.p`
