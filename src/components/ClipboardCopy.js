@@ -42,26 +42,33 @@ const ClipboardCopy = ({ url }) => {
 export default ClipboardCopy;
 
 const URLCopybox = styled.div`
-  border: solid 1px #8465e1;
-  border-radius: 4px;
-  height: 40px;
+  position: relative;
   overflow: hidden;
+  box-sizing: border-box;
   input {
-    height: 100%;
-    padding: 11px;
-    width: calc(100% - 100px);
-    display: inline-block;
+    width: 100%;
+    padding: 0 100px 0 0.625rem;
+    height: 2.5rem;
+    border: solid 1px #8465e1;
+    border-radius: 4px;
+    font-size: 0.875rem;
     text-overflow: ellipsis;
+    box-sizing: border-box;
 
   }
 `;
 
 const CopyButton = styled.button`
-  float: right;
+  position: absolute;
+  right: 0; 
+  top: 0;
   background-color: #8465e1;
+  border-radius: 0 4px 4px 0;
   color: #fff;
   width: 74px;
   height: 100%;
+  font-size: 0.875rem;
+  line-height: 2.5rem;
   &:hover {
     cursor: pointer;
   }

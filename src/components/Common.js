@@ -4,7 +4,7 @@ const CommonFunc = () => {
     const handleContentInner = () => {
         let windowH = window.innerHeight;
             let contentInner = document.querySelector('.ContentInner');
-            let headerH = document.querySelector('header').clientHeight;
+            let headerH = document.querySelector('.App > header').clientHeight;
             let footerH = document.querySelector('footer').clientHeight;
             let changeH = windowH - (headerH + 30) + (footerH);
             contentInner.style.cssText=`
@@ -19,6 +19,6 @@ const CommonFunc = () => {
         handleContentInner();
     }, [])
 
-    window.addEventListener('resize', handleContentInner)
+    window.addEventListener('resize', handleContentInner);
 }
 export default CommonFunc;

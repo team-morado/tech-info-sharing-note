@@ -61,7 +61,7 @@ const ListOptionItem = styled.li`
       top: .4rem;
       width: 1rem;
       height: 1rem;
-      border: 1px solid #ddd;
+      border: 2px solid #ddd;
       border-radius: 0.125rem;
       box-sizing: border-box;
     }

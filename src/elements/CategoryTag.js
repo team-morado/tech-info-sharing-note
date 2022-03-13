@@ -11,12 +11,11 @@ const types = {
         height: "3.13rem",
     },
     long: {
-        lineHeight: '1.81rem',
+        lineHeight: '1.6rem',
         fontSize: '1rem',
-        borderRadius: "15px",
-        marginBottom: "24px",
+        borderRadius: "1rem",
         minWidth: "4.31rem",
-        height: "1.81rem",
+        height: "1.6rem",
     }
 }
 
@@ -37,7 +36,7 @@ const Tag = styled.div`
     border: none;
     box-sizing: border-box;
     font-weight: 700;
-    color: #000;
+    color: #333;
     background-color: ${(props) => props.tagColor};
     ${typeStyles}
 `
@@ -49,16 +48,16 @@ const CategoryTag = (props) => {
     let tagColor = "";
     switch(category){
         case "HTML" :
-            tagColor = "#EBE1F6";
+            tagColor = "#FCBB76";
             break;
         case "CSS" :
-            tagColor = "#D7F5F5";
+            tagColor = "#F8B7C9";
             break;
         case "JS" :
-            tagColor = "#F9E79F";
+            tagColor = "#FFE075";
             break;
         case "React" :
-            tagColor = "#5ED3F3";
+            tagColor = "#74CEE2";
             break;
         default : // 기타
             tagColor = "#D6DBDF";

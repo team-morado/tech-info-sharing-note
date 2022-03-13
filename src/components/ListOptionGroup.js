@@ -4,7 +4,7 @@ import styled from "styled-components";
 const ListOptionGroup = ({addChecked, removeChecked}) => {
 
   return(
-      <>
+      <ListOptionContainer>
     <ListOptionRow>
     <ListOptionType>작성자</ListOptionType>
     <ListOptionList>
@@ -24,23 +24,29 @@ const ListOptionGroup = ({addChecked, removeChecked}) => {
       <ListOption name="category" data="react" value="React" addChecked={addChecked} removeChecked={removeChecked} />
     </ListOptionList>
   </ListOptionRow>
-  </>
+  </ListOptionContainer>
   )
 };
 
 export default ListOptionGroup;
 
+const ListOptionContainer = styled.div `
+  margin-bottom: 1.875rem;
+`
+
 const ListOptionRow = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 20px 3%;
+  padding: 1.25rem;
   border-bottom: 1px solid #eee;
   box-sizing: border-box;
 `
 const ListOptionType = styled.strong`
   width: 5.375rem;
   padding-right: 0.375rem;
+  color: #999;
   font-size: 1rem;
+  font-weight: 500;
   letter-spacing: -0.045rem;
   line-height: 1.8rem;
   box-sizing: border-box;

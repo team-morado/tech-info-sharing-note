@@ -75,7 +75,7 @@ const New = ({ onCreate }) => {
   return (
     <ElMain>
       <ElDiv>
-        <Text margin="13px 0 11px 0">작성자</Text>
+        <Text>작성자</Text>
         <ElSelect
           name="author"
           value={state.author || ""}
@@ -92,7 +92,7 @@ const New = ({ onCreate }) => {
       </ElDiv>
 
       <ElDiv>
-        <Text margin="0 0 11px 0">제목</Text>
+        <Text>제목</Text>
         <ElInput
           type="text"
           ref={titleRef}
@@ -104,7 +104,7 @@ const New = ({ onCreate }) => {
       </ElDiv>
 
       <ElDiv>
-        <Text margin="0 0 11px 0">카테고리</Text>
+        <Text>카테고리</Text>
         <ElSelect
           name="category"
           value={state.category}
@@ -120,7 +120,7 @@ const New = ({ onCreate }) => {
       </ElDiv>
 
       <ElDiv>
-        <Text margin="0 0 11px 0">공유할 링크(URL)</Text>
+        <Text>공유할 링크(URL)</Text>
         <ElInput
           type="text"
           ref={urlRef}
@@ -132,7 +132,7 @@ const New = ({ onCreate }) => {
       </ElDiv>
 
       <ElDiv>
-        <Text margin="0 0 11px 0">공유하고 싶은 이유 or 상세정보</Text>
+        <Text>공유하고 싶은 이유 or 상세정보</Text>
         <ElTextarea
           ref={contentRef}
           value={state.content}
@@ -151,23 +151,27 @@ const New = ({ onCreate }) => {
 
 export default New;
 
-const ElMain = styled.main`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  padding-left: 3%;
-  padding-right: 3%;
+const ElMain = styled.div`
+  padding: 1.875rem 1.25rem;
+  box-sizing: border-box;
+  & > button {
+    display: block;
+    margin: 0 auto;
+  }
 `;
 
 const ElDiv = styled.div`
-  margin-bottom: 19px;
+  margin-bottom: 1.25rem;
+  input, select, textarea{
+    width: 100%;
+    margin-top: 0.625rem;
+    border-radius: 4px;
+  } 
 `;
 
 const ElInput = styled.input`
-  background-color: #f9f9f9;
-  width: 337px;
   height: 40px;
-  border-radius: 4px;
+  background-color: #f9f9f9;
   padding-left: 1rem;
   &:focus {
     outline: 1px solid #8465e1;
@@ -175,11 +179,9 @@ const ElInput = styled.input`
 `;
 
 const ElSelect = styled.select`
-  width: 337px;
   height: 40px;
-  border-radius: 4px;
   padding-left: 1rem;
-  background: #f9f9f9 url(${process.env.PUBLIC_URL + 'images/icon-arrow-down.svg'}) no-repeat 95% 50%;
+  background: #f9f9f9 url(${process.env.PUBLIC_URL + 'images/icon-arrow-down.svg'}) no-repeat right 1rem top 50%;
 
   &:focus {
     outline: 1px solid #8465e1;
@@ -188,9 +190,7 @@ const ElSelect = styled.select`
 
 const ElTextarea = styled.textarea`
   background-color: #f9f9f9;
-  width: 337px;
   height: 10rem;
-  border-radius: 4px;
   padding: 1rem;
   &:focus {
     outline: 1px solid #8465e1;
