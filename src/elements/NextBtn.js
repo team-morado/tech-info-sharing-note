@@ -7,7 +7,7 @@ import {EditIcon} from "../components";
 const NextBtn = () => {
   const location = useLocation();
   return (
-    <Button to="/new" current={location.pathname === "/" ? 1 : 0}>
+    <Button to="/new" current={location.pathname === "/home" ? 1 : 0}>
       <EditIcon />
       <BtnText>글쓰기</BtnText>
     </Button>

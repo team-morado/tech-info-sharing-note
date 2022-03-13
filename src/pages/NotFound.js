@@ -9,7 +9,7 @@ const NotFound = () => {
     <NotFoundCont>
       <ErrorTxt>404</ErrorTxt>
       <SubTxt>서버 주소를 다시 확인해주세요 :(</SubTxt>
-      <Button width="125px" _onClick={() => navigate(-1)}>
+      <Button width="125px" _onClick={() => navigate("/home")}>
         이전 페이지
       </Button>
     </NotFoundCont>
