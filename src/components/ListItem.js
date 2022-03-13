@@ -35,23 +35,22 @@ export default ListItem;
 
 
 const ItemList = styled.div`
-  background-color: #F9F9F9;
   display: flex;
-  padding: 0.5em 1em;
-  font-size: 14px;
-  margin: 10px 9px 0;
-  border-radius: 10px;
-  height: 68px;
-  box-sizing: border-box;
-  overflow: hidden;
-  width: inherit;
   align-items: center;
+  width: inherit;
+  padding: 1rem;
+  margin: 0.625rem 0;
+  background-color: #f9f9f9;
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+  overflow: hidden;
+  box-sizing: border-box;
   .bold {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem;
   }
   &:hover {
     cursor: pointer;
@@ -69,7 +68,8 @@ const Contents = styled.div`
       text-overflow: ellipsis;
       margin-top: 0.5em;
       color: #999999;
-      max-height: 0.875rem;
+      line-height: 1rem;
+      max-height: 1rem;
   }
 
 `

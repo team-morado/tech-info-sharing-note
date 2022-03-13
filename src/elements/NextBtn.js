@@ -16,18 +16,19 @@ const NextBtn = () => {
 
 const Button = styled(Link)`
   display: ${(props) => (props.current ? "flex" : "none")};
+  height: 2rem;
   align-items: center;
   background-color: #8465e1;
   color: #fff;
   cursor: pointer;
-  padding: 0.3em 0.3rem;
-  margin-right: 0.7rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 1rem;
+  font-weight: 400;
 `;
 
-const BtnText = styled.p`
-  margin: 0 0.3rem;
+const BtnText = styled.span`
+  margin-right: 0.3rem;
   letter-spacing: -0.045rem;
 `;
 
