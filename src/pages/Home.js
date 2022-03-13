@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {ListItem, ListOptionGroup} from "../components";
 import {addCategoryFB, loadTechInfoFB, removeCategoryFB} from "../shared/redux/modules/techInfo";
+import Splash from "./Splash";
 
 const Home = () => {
 
@@ -58,6 +59,7 @@ const Home = () => {
 
   return (
     <div>
+      <Splash />
       <ListOptionGroup addChecked={addChecked} removeChecked={removeChecked}/>
       {techInfo_list.sort((a,b) => b.created_date-a.created_date).map((it, index) => {
         return (
