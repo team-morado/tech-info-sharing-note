@@ -13,7 +13,7 @@ export const Header = () => {
         <BtnLink
           type="button"
           onClick={() => navigate(-1)}
-          current={location.pathname !== "/" ? 1 : 0}
+          current={location.pathname !== "/home" ? 1 : 0}
         >
           <ArrowLeft />
         </BtnLink>

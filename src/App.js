@@ -30,12 +30,11 @@ function App() {
       <Header/>
       <div className="ContentInner">
         <Routes>
-          <Route path="/" element={<Home/>}/>
+          <Route path="/" element={<Splash/>}/>
+          <Route path="/home" element={<Home/>}/>
           <Route path="/new" element={<New onCreate={onCreate}/>}/>
           <Route path="/view/:index" element={<ViewPage/>}/>
           <Route path="/edit/:index" element={<Edit/>}/>
-          <Route path="/splash" element={<Splash/>}/>
-          <Route path="/loading" element={<Loading/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </div>
