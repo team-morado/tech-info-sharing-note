@@ -48,19 +48,19 @@ const CategoryTag = (props) => {
     let tagColor = "";
     switch(category){
         case "HTML" :
-            tagColor = "#FCBB76";
+            tagColor = "#FFCDA0";
             break;
         case "CSS" :
-            tagColor = "#F8B7C9";
+            tagColor = "#FBD7E7";
             break;
         case "JS" :
-            tagColor = "#FFE075";
+            tagColor = "#FFEB9B";
             break;
         case "React" :
-            tagColor = "#74CEE2";
+            tagColor = "#D3EDF2";
             break;
         default : // 기타
-            tagColor = "#D6DBDF";
+            tagColor = "#E7D8EA";
             break;
     }
 
