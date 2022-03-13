@@ -1,9 +1,11 @@
 import React, {useRef, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {useNavigate, useParams} from "react-router-dom";
-import {Button, Text} from "../elements";
 import styled from "styled-components";
+import {useNavigate, useParams} from "react-router-dom";
+
+import {useDispatch, useSelector} from "react-redux";
 import {updateTechInfoFB} from "../shared/redux/modules/techInfo";
+
+import {Button, Text} from "../elements";
 
 const Edit = () => {
   const navigate = useNavigate();
@@ -92,6 +94,7 @@ const Edit = () => {
           <option value="CSS">CSS</option>
           <option value="JS">JS</option>
           <option value="React">React</option>
+          <option value="etc">기타</option>
         </ElSelect>
       </ElDiv>
 
