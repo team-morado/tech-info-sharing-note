@@ -66,12 +66,7 @@ const New = ({ onCreate }) => {
       state.url,
       state.content
     );
-
-    if(window.confirm("게시글을 저장 하시겠습니까?")) {
-      navigate('/home');
-    } else {
-      return null;
-    }
+    navigate('/home');
   };
 
   return (
