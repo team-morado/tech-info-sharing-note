@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled, { keyframes } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Splash = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    setTimeout(() => {
+      navigate("/home");
+    }, [1000]);
+  });
   return (
     <SplashCont>
       <Logo src={process.env.PUBLIC_URL + "images/logo.svg"} />
