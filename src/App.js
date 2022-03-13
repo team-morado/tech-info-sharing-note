@@ -1,12 +1,13 @@
 import "./App.css";
+import {useEffect} from "react";
 import {Routes, Route} from "react-router-dom";
 
-import {createTechInfoFB} from "./shared/redux/modules/techInfo";
 import {useDispatch, useSelector} from "react-redux";
+import {createTechInfoFB, loadTechInfoFB} from "./shared/redux/modules/techInfo";
 
-import {Footer, Header, CommonFunc} from "./components";
-import {Home, NotFound, New, Splash, ViewPage, Edit} from "./pages";
-import Loading from "./pages/Loading";
+import {handleContentInner} from "./Util/Common";
+import {Footer, Header} from "./components";
+import {Home, NotFound, New, Splash, ViewPage, Edit, Loading} from "./pages";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,12 @@ function App() {
     dispatch(createTechInfoFB(newItem));
   };
 
+  useEffect(() => {
+    dispatch(loadTechInfoFB());
+    handleContentInner();
+    window.addEventListener('resize', handleContentInner);
+  })
+
   return (
     <div className="App">
       <Header/>
@@ -40,7 +47,6 @@ function App() {
       </div>
       <Footer/>
       {!is_loaded && <Loading/>}
-      {CommonFunc()}
     </div>
   );
 }
