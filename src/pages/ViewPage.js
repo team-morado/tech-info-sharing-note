@@ -75,7 +75,7 @@ const ViewPage = () => {
           <Button size="small" bg="#fff" color="#8465e1" border="1px solid #8465e1" _onClick={() => {
             if(window.confirm("정말 삭제하시겠습니까?")) {
               dispatch(deleteTechInfoFB(techInfo_list[techInfo_index].id));
-              navigate('/');
+              navigate('/home');
             } else {
               return null;
             }
