@@ -1,18 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
 import styled from "styled-components";
+
+import {useDispatch, useSelector} from "react-redux";
+import {addCategoryFB, removeCategoryFB} from "../shared/redux/modules/techInfo";
+
 import {ListItem, ListOptionGroup} from "../components";
-import {addCategoryFB, loadTechInfoFB, removeCategoryFB} from "../shared/redux/modules/techInfo";
+
 
 const Home = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(loadTechInfoFB());
-  }, [])
 
   const techInfo_list = useSelector((state) => state.techInfo.list);
 
@@ -61,13 +59,13 @@ const Home = () => {
     <div>
       <ListOptionGroup addChecked={addChecked} removeChecked={removeChecked}/>
       <ItemListContainer>
-      {techInfo_list.sort((a,b) => b.created_date-a.created_date).map((it, index) => {
-        return (
-          <ListItem key={it.id} {...it} _onClick={() => {
-            navigate('/view/' + index)
-          }}/>
-        )
-      })}
+        {techInfo_list.sort((a, b) => b.created_date - a.created_date).map((it, index) => {
+          return (
+            <ListItem key={it.id} {...it} _onClick={() => {
+              navigate('/view/' + index)
+            }}/>
+          )
+        })}
       </ItemListContainer>
     </div>
   );

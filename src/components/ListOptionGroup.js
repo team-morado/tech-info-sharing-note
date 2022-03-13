@@ -22,6 +22,7 @@ const ListOptionGroup = ({addChecked, removeChecked}) => {
       <ListOption name="category" data="css" value="CSS" addChecked={addChecked} removeChecked={removeChecked} />
       <ListOption name="category" data="javascript" value="JS" addChecked={addChecked} removeChecked={removeChecked} />
       <ListOption name="category" data="react" value="React" addChecked={addChecked} removeChecked={removeChecked} />
+      <ListOption name="category" data="etc" value="etc" addChecked={addChecked} removeChecked={removeChecked} />
     </ListOptionList>
   </ListOptionRow>
   </ListOptionContainer>

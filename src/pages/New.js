@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 import {Button, Text} from "../elements"
 
-
 const New = ({ onCreate }) => {
   const navigate = useNavigate();
 
@@ -67,9 +66,12 @@ const New = ({ onCreate }) => {
       state.url,
       state.content
     );
-    
-    alert("저장 성공");
-    navigate("/");
+
+    if(window.confirm("게시글을 저장 하시겠습니까?")) {
+      navigate('/home');
+    } else {
+      return null;
+    }
   };
 
   return (
@@ -116,6 +118,7 @@ const New = ({ onCreate }) => {
           <option value="CSS">CSS</option>
           <option value="JS">JS</option>
           <option value="React">React</option>
+          <option value="etc">기타</option>
         </ElSelect>
       </ElDiv>
 
