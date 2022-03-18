@@ -2,8 +2,12 @@
 
 0. 카테고리 태그 표시
 
-- `CategoryTag` 컴포넌트를 생성하여 category값에 따라 다른 컬러가 표시되도록 하였습니다.
-- size props를 달리 주어 게시글 목록과 게시글 조회 페이지에서 다른 모양으로 표시되도록 하였습니다.
+- `CategoryTag` 컴포넌트를 생성하여 category값에 따라 다른 컬러가 표시되도록 하였습니다.\
+![image](https://user-images.githubusercontent.com/74545780/158935108-58eb5f74-c17e-492c-a68c-1c6f7c105af0.png)
+
+- size props를 달리 주어 게시글 목록과 게시글 조회 페이지에서 다른 모양으로 표시되도록 하였습니다.\
+![image](https://user-images.githubusercontent.com/74545780/158935074-62687ceb-1eb3-4d72-a609-b3482e66504d.png)
+![image](https://user-images.githubusercontent.com/74545780/158935089-1faa0b12-9b85-4149-9d97-920d5de97f2a.png)
 
 1. 게시글 목록
 
