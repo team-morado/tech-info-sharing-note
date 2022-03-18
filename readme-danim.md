@@ -22,11 +22,11 @@
 - 작성일시 표시
 
   - YYYY년 MM월 DD일 오전/오후 HH:MM 형식으로 작성일시가 표시됩니다.
-
+- 공유 URL 새창 열기
 - URL 클립보드에 복사
   - Copy버튼을 누르면 버튼의 텍스트가 일시적으로 Copied로 바뀌면서 URL이 클립보드로 복사 됩니다.
 <img src="https://user-images.githubusercontent.com/74545780/158940925-5dd36e92-8a9b-4a95-b989-3f41e02a8765.gif" width="600px">
-- 공유 URL 새창 열기
+
 
 3. 게시글 생성 페이지
 
