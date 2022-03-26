@@ -136,17 +136,11 @@ https://tech-info-sharing-note.web.app/home
 
 ## :pencil2: 시안
 🔗 [Figma Link](https://www.figma.com/file/4U8qranTUhhKW1vFeNWrav/%EC%B4%88%EC%95%88?node-id=0%3A1)   
-- demo v.1      
-![시안0](https://user-images.githubusercontent.com/93389773/155470792-00c78710-1ef1-4329-a118-13dc00a65f29.png)
-      
-- demo v.1.1     
-![시안1 5](https://user-images.githubusercontent.com/93389773/155470819-85258dc7-a87a-49ea-b26e-1cc924b34d65.png)      
+- Version 1 (Demo)      
+![시안0](https://user-images.githubusercontent.com/93389773/155470792-00c78710-1ef1-4329-a118-13dc00a65f29.png)     
 ![시안1](https://user-images.githubusercontent.com/93389773/155470807-d791fb92-9de8-45e5-83d9-70e902d7b266.png)      
 
-- demo v.2     
-![시안2](https://user-images.githubusercontent.com/93389773/155470839-a1cbf815-c88e-45e1-9fa8-ca52c333fd1a.png)
-
-- **demo v.3** (Final)   
+- **Version 2** (Final)   
 ![시안3 1](https://user-images.githubusercontent.com/93389773/159384411-9e3c75e3-6084-49a0-b4e3-8fa8702a133a.PNG)
 ![시안3 2](https://user-images.githubusercontent.com/93389773/159384421-7b78caa2-aa53-48f2-b169-0c2451bf30f9.PNG)
 <br>
@@ -164,24 +158,36 @@ https://tech-info-sharing-note.web.app/home
 ## 🖐️ 작업상세내용
 | 담당 | 구분 | 상세내용 | URL | 경로 |
 |--|--|--|--|--|
-|강지윤|main|카테고리 및 작성자 컴포넌트 생성|||
-||main|카테고리별 게시글 필터링|||
-||기타|1차 화면 기획 및 디자인|||
-|김다님|main|게시글 목록 카테고리 및 작성일 표시|||
-||main|게시글 목록 ellipsis 처리|||
-||view|게시글 조회 페이지 CRUD|||
-||write|URL 입력 형식에 관계없이 올바른 URL 저장 기능 구현|||
-|이규민|main|게시글 등록 페이지 생성|||
-||write|게시글 작성 페이지 CRUD|||
-||기타|Firebase 서버 연결 코드 개발|||
-||기타|Redux 전역 상태 관리 코드 개발|||
-||기타|전체 게시글 CRUD 개발 총괄|||
-|장효순|main|게시글 목록 data 출력 기능 개발||||
-||기타|Git 협업 가이드 작성||||
-||기타|README file 작성|||
-|조미진|splash|초기 화면 이동 페이지 작업|||
-||loading|loading 페이지 생성|||
-||error|NotFound 페이지 생성|||
-||기타|로고 및 화면 2차 디자인|||
-<br>
+|강지윤|pages|카테고리별 게시글 필터링 기능 개발|src/pages/Home.js|/home|
+||components|작성자, 스킬 카테고리 그룹 컴포넌트 개발|src/components/ListOptionGroup.js||
+|||작성자, 스킬 카테고리 옵션 컴포넌트 개발|src/components/ListOption.js||
+||util|고정 헤더 및 푸터 제외한 컨텐츠 영역 조절 관련 코드 개발|src/util/Common.js||
+||UX/UI|1차 시안 화면 기획 및 디자인 생성|||
+|김다님|pages|게시글 상세 조회 페이지 개발|src/pages/ViewPage.js|/view|
+||components|아이콘 이미지 SVG 컴포넌트화|src/components/Svg.js||
+|||카테고리 태그 모듈화 코드 개발|src/elements/CategoryTag.js||
+|||URL 클립보드 복사 컴포넌트 개발|src/elements/ClipboardCopy.js||
+||util|URL 프로토콜 유효성 검사|src/pages/New.js|/new|
+|||게시글 목록 카테고리 및 작성일 표시 기능|src/components/ListItem.js||
+|이규민|pages|게시글 작성 페이지 개발|src/pages/New.js|/new|
+|||게시글 수정 페이지 개발|src/pages/Edit.js|/edit|
+||components|버튼 컴포넌트 모듈화 코드 개발|src/elements/Button.js||
+|||텍스트 컴포넌트 모듈화 코드 개발|src/elements/Text.js||
+||shared|Redux 액션, 액션 생성 함수, 리듀서, 미들웨어 코드 개발|src/shared/redux/techInfo.js||
+|||Redux 스토어 코드 개발|src/shared/redux/configStore.js||
+|||Firebase 서버 연결 코드 개발|src/shared/firebase.js||
+||util|Today 시간 표시 기능 유틸 코드 개발|src/util/timeForToday.js||
+||etc|전체 게시글 CRUD 개발 총괄|||
+|장효순|pages|게시글 목록 data 출력 기능 개발|src/pages/Home.js|/home|
+||etc|README file 작성|/README.md||
+|||Git 협업 가이드 작성||||
+|조미진|pages|초기 화면 이동 Splash 페이지 개발|src/pages/Splash.js|/|
+|||NotFound 페이지 개발|src/pages/NotFound.js|/\*|
+|||Loading 페이지 개발|src/pages/Loading.js||
+||components|접속 URL에 따른 반응형 Header 컴포넌트 개발|src/components/Header.js||
+|||Footer 컴포넌트 코드 개발|src/components/Footer.js||
+||UX/UI|2차 시안 화면 및 프로젝트 로고 디자인 생성|||
+<br>		
+
+
 <p align="right"><a href="#top">[TOP]</a></p>
