@@ -59,7 +59,7 @@
 <br>
 
 ## 🔗 배포 URL
-https://tech-info-sharing-note.web.app/home
+https://tech-info-sharing-note.web.app
 <br>
 <br>
 <p align="right"><a href="#top">[TOP]</a></p>
