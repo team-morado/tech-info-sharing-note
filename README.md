@@ -156,37 +156,37 @@ https://tech-info-sharing-note.web.app/home
 <p align="right"><a href="#top">[TOP]</a></p>
 
 ## 🖐️ 작업상세내용
-| 담당 | 구분 | 상세내용 | URL | 경로 |
-|--|--|--|--|--|
-|강지윤|pages|카테고리별 게시글 필터링 기능 개발|src/pages/Home.js|/home|
-||components|작성자, 스킬 카테고리 그룹 컴포넌트 개발|src/components/ListOptionGroup.js||
-|||작성자, 스킬 카테고리 옵션 컴포넌트 개발|src/components/ListOption.js||
-||util|고정 헤더 및 푸터 제외한 컨텐츠 영역 조절 관련 코드 개발|src/util/Common.js||
-||UX/UI|1차 시안 화면 기획 및 디자인 생성|||
-|김다님|pages|게시글 상세 조회 페이지 개발|src/pages/ViewPage.js|/view|
-||components|아이콘 이미지 SVG 컴포넌트화|src/components/Svg.js||
-|||카테고리 태그 모듈화 코드 개발|src/elements/CategoryTag.js||
-|||URL 클립보드 복사 컴포넌트 개발|src/elements/ClipboardCopy.js||
-||util|URL 프로토콜 유효성 검사|src/pages/New.js|/new|
-|||게시글 목록 카테고리 및 작성일 표시 기능|src/components/ListItem.js||
-|이규민|pages|게시글 작성 페이지 개발|src/pages/New.js|/new|
-|||게시글 수정 페이지 개발|src/pages/Edit.js|/edit|
-||components|버튼 컴포넌트 모듈화 코드 개발|src/elements/Button.js||
-|||텍스트 컴포넌트 모듈화 코드 개발|src/elements/Text.js||
-||shared|Redux 액션, 액션 생성 함수, 리듀서, 미들웨어 코드 개발|src/shared/redux/techInfo.js||
-|||Redux 스토어 코드 개발|src/shared/redux/configStore.js||
-|||Firebase 서버 연결 코드 개발|src/shared/firebase.js||
-||util|Today 시간 표시 기능 유틸 코드 개발|src/util/timeForToday.js||
-||etc|전체 게시글 CRUD 개발 총괄|||
-|장효순|pages|게시글 목록 data 출력 기능 개발|src/pages/Home.js|/home|
-||etc|README file 작성|/README.md||
-|||Git 협업 가이드 작성||||
-|조미진|pages|초기 화면 이동 Splash 페이지 개발|src/pages/Splash.js|/|
-|||NotFound 페이지 개발|src/pages/NotFound.js|/\*|
-|||Loading 페이지 개발|src/pages/Loading.js||
-||components|접속 URL에 따른 반응형 Header 컴포넌트 개발|src/components/Header.js||
-|||Footer 컴포넌트 코드 개발|src/components/Footer.js||
-||UX/UI|2차 시안 화면 및 프로젝트 로고 디자인 생성|||
+| 담당 | 상세내용 | URL | 경로 |
+|--|--|--|--|
+|강지윤|카테고리별 게시글 필터링 기능 개발|src/pages/Home.js|/home|
+||작성자, 스킬 카테고리 그룹 컴포넌트 개발|src/components/ListOptionGroup.js||
+||작성자, 스킬 카테고리 옵션 컴포넌트 개발|src/components/ListOption.js||
+||고정 헤더 및 푸터 제외한 컨텐츠 영역 조절 관련 코드 개발|src/util/Common.js||
+||1차 시안 화면 기획 및 디자인 생성|||
+|김다님|게시글 상세 조회 페이지 개발|src/pages/ViewPage.js|/view|
+||아이콘 이미지 SVG 컴포넌트화|src/components/Svg.js||
+||카테고리 태그 모듈화 코드 개발|src/elements/CategoryTag.js||
+||URL 클립보드 복사 컴포넌트 개발|src/elements/ClipboardCopy.js||
+||URL 프로토콜 유효성 검사|src/pages/New.js|/new|
+||게시글 목록 카테고리 및 작성일 표시 기능|src/components/ListItem.js||
+|이규민|게시글 작성 페이지 개발|src/pages/New.js|/new|
+||게시글 수정 페이지 개발|src/pages/Edit.js|/edit|
+||버튼 컴포넌트 모듈화 코드 개발|src/elements/Button.js||
+||텍스트 컴포넌트 모듈화 코드 개발|src/elements/Text.js||
+||Redux 액션, 액션 생성 함수, 리듀서, 미들웨어 코드 개발|src/shared/redux/techInfo.js||
+||Redux 스토어 코드 개발|src/shared/redux/configStore.js||
+||Firebase 서버 연결 코드 개발|src/shared/firebase.js||
+||Today 시간 표시 기능 유틸 코드 개발|src/util/timeForToday.js||
+||전체 게시글 CRUD 개발 총괄|||
+|장효순|게시글 목록 data 출력 기능 개발|src/pages/Home.js|/home|
+||README file 작성|/README.md||
+||Git 협업 가이드 작성||||
+|조미진|초기 화면 이동 Splash 페이지 개발|src/pages/Splash.js|/|
+||NotFound 페이지 개발|src/pages/NotFound.js|/\*|
+||Loading 페이지 개발|src/pages/Loading.js||
+||접속 URL에 따른 반응형 Header 컴포넌트 개발|src/components/Header.js||
+||Footer 컴포넌트 코드 개발|src/components/Footer.js||
+||2차 시안 화면 및 프로젝트 로고 디자인 생성|||
 <br>		
 
 
